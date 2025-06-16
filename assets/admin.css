@@ -1,0 +1,117 @@
+.si-css-admin {
+    max-width: 100%;
+}
+.si-form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+.si-form-group {
+    margin-bottom: 20px;
+}
+.si-form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.si-form-group input,
+.si-form-group textarea {
+    width: 100%;
+}
+.si-preview-box {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    padding: 20px;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    min-width: 250px;
+    border-radius: 10px;
+}
+#si-dummy-content {
+    min-height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f1;
+    transition: all 0.3s;
+    padding: 10px;
+    flex-direction: column;
+}
+.si-classes-list {
+    margin-top: 40px;
+}
+
+#si-classes-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Admin Preview Enhancements */
+.si-class-card {
+    border: 1px solid #000;
+    margin-bottom: 15px;
+    transition: all 0.3s;
+    min-width: 300px;
+    margin: 5px;
+}
+
+.si-class-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.si-class-header {
+    padding: 12px 15px;
+    background: #f5f7fa;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.si-class-name {
+    font-weight: 600;
+    font-family: monospace;
+}
+
+.si-class-code, .si-hover-code, .si-focus-code {
+    padding: 15px;
+    background: white;
+    font-family: monospace;
+    font-size: 13px;
+    max-height: 150px;
+    overflow: auto;
+    white-space: pre-wrap;
+}
+
+.si-class-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.si-class-actions a {
+    text-decoration: none;
+}
+
+.immens-btn {
+    background: #1f9aff;
+    color: white !important;
+    border-radius: 8px;
+    padding: 12px 24px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.immens-btn:hover {
+    background: #0d8aee;
+    transform: translateY(-2px);
+}
+
+
+

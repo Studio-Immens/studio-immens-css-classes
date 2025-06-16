@@ -1,0 +1,85 @@
+/* Stile per il selettore nel pannello laterale */
+.components-select-control__input {
+    height: 36px;
+}
+
+/* assets/editor.css */
+.studioimmens-css-control .components-panel__body {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 16px;
+}
+
+.studioimmens-css-control .components-select-control__input {
+    min-height: 36px;
+    border-radius: 4px;
+    border: 1px solid #8d96a0;
+}
+/* Editor Styles */
+.studioimmens-css-control .components-panel__body {
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 0;
+}
+
+.si-classes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 16px;
+    padding: 5px;
+}
+
+.si-class-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.si-class-card.is-active {
+    border-color: #007cba;
+    box-shadow: 0 0 0 1px #007cba;
+}
+
+.si-class-card .components-card__header {
+    padding: 12px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.si-class-card .components-card__body {
+    padding: 12px;
+    background-color: #f8f9fa;
+}
+
+.si-class-code {
+    font-family: monospace;
+    font-size: 11px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 3px;
+    max-height: 100px;
+    overflow: auto;
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+/* Preview overlay */
+.block-editor-block-list__layout::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.studioimmens-preview-active .block-editor-block-list__layout::after {
+    opacity: 1;
+}

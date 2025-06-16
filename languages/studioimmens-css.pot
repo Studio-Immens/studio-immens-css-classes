@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Studio Immens CSS Classes\n"
+"POT-Creation-Date: 2023-10-15 12:00+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Studio Immens\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "CSS Classes"
+msgstr ""
+
+msgid "Select Class"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Studio Immens CSS Classes"
+msgstr ""
+
+msgid "Class Name"
+msgstr ""
+
+msgid "Without dot (e.g. \"my-class\")"
+msgstr ""
+
+msgid "CSS Code"
+msgstr ""
+
+msgid "Save Class"
+msgstr ""
+
+msgid "Live Preview"
+msgstr ""
+
+msgid "Hover over a class to see preview"
+msgstr ""
+
+msgid "Saved Classes"
+msgstr ""
+
+msgid "Class"
+msgstr ""
+
+msgid "CSS"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "None"
+msgstr ""
