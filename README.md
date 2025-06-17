@@ -2,7 +2,7 @@
 
 # Studio Immens CSS Classes
 
-⚡️ Un set leggero di classi CSS utility personalizzate per Gutenberg, Blocksy e WordPress.  
+⚡️ Crea il tuo set di classi CSS personalizzate, subito pronte all’uso con un click, per migliorare il design dei tuoi blocchi Gutenberg.  
 Sviluppato da [Studio Immens](https://www.studioimmens.com) – Sistemi digitali modulari per imprenditori e professionisti.
 
 ![Screenshot](https://raw.githubusercontent.com/Immens95/studioimmens-css-classes/main/screenshot.png)
