@@ -6,7 +6,7 @@ Version: 1.0.0
 Author: Studio Immens
 Text Domain: studioimmens-css-classes
 Domain Path: /languages
-License: GPL v3 or later
+License: GPL v2 or later
 */
 
 // === FILE PRINCIPALE: studioimmens-css-classes.php ===
