@@ -1,6 +1,6 @@
 <div class="si-css-admin wrap">
     <h1 class="si-title"><?php esc_html_e('Studio Immens CSS Classes', 'studioimmens-css-classes'); ?>
-        <a href="studioimmens.com" class="immens-btn"><?php esc_html_e('View Pro Features', 'studioimmens-css-classes'); ?></a>
+        <a href="https://studioimmens.com" class="immens-btn"><?php esc_html_e('View Pro Features', 'studioimmens-css-classes'); ?></a>
     </h1>
     <div class="si-form-container">
         <div class="si-form-column">
@@ -69,6 +69,8 @@
         <div class="si-list-controls">
             <div class="si-search-box">
                 <input type="text" id="si-class-search" placeholder="<?php esc_html_e('Search classes...', 'studioimmens-css-classes'); ?>">
+                <!-- <button id="si-class-import" class="immens-btn"><?php esc_html_e('Import', 'studioimmens-css-classes');?></button>
+                <button id="si-class-export" class="immens-btn"><?php esc_html_e('Export', 'studioimmens-css-classes');?></button> -->
             </div>
             <div class="si-stats">
                 <span id="si-classes-count">0</span> <?php esc_html_e('classes', 'studioimmens-css-classes'); ?>
