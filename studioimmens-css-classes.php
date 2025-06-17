@@ -4,13 +4,15 @@ Plugin Name: Studio Immens CSS Classes
 Description: Aggiungi classi CSS personalizzate ai blocchi Gutenberg con anteprima live.
 Version: 1.0.0
 Author: Studio Immens
-Text Domain: studioimmens-css
+Text Domain: studioimmens-css-classes
 Domain Path: /languages
+License: GPL v3 or later
 */
 
 // === FILE PRINCIPALE: studioimmens-css-classes.php ===
 define('SI_CSS_PATH', plugin_dir_path(__FILE__));
 define('SI_CSS_URL', plugin_dir_url(__FILE__));
+define('SI_CSS_VERSION', '1.0.0');
 
 class StudioImmens_CSS_Classes {
     public function __construct() {
@@ -27,7 +29,7 @@ class StudioImmens_CSS_Classes {
         add_action('enqueue_block_editor_assets', [$this, 'editor_assets']);
         
         // Traduzioni
-        load_plugin_textdomain('studioimmens-css', false, basename(dirname(__FILE__)) . '/languages');
+        load_plugin_textdomain('studioimmens-css-classes', false, basename(dirname(__FILE__)) . '/languages');
 
         add_action('wp_ajax_nopriv_si_get_css_classes', function() {
             wp_send_json_error('Not logged in', 401);
@@ -41,12 +43,13 @@ class StudioImmens_CSS_Classes {
 
         // Logga errori AJAX
         add_filter('wp_php_error_message', function($message) {
-            error_log('[CSS Classes] AJAX Error: ' . $message);
+            // error_log('[CSS Classes] AJAX Error: ' . $message);
             return $message;
         }, 10, 2);
 
         add_action('wp_footer', [$this, 'css_constructor']);
         add_action('admin_footer', [$this, 'css_constructor']);
+        add_action('enqueue_block_editor_assets', [$this, 'css_constructor']);
     }
 
     public function css_constructor() {
@@ -54,18 +57,18 @@ class StudioImmens_CSS_Classes {
         echo '<style id="studioImmensCss">';
         foreach ($classes as $key => $value) {
                 if (isset($value['name']) && isset($value['css'])) {
-                    echo ".".$value['name']." { ";
-                        echo $value['css'];
+                    echo ".".esc_attr($value['name'])." { ";
+                        echo esc_attr($value['css']);
                     echo "} ";
                 }
                 if (isset($value['name']) && isset($value['hover'])) {
-                    echo ".".$value['name'].":hover { ";
-                         echo $value['hover'];
+                    echo ".".esc_attr($value['name']).":hover { ";
+                         echo esc_attr($value['hover']);
                     echo "} ";
                 }
                 if (isset($value['name']) && isset($value['focus'])) {
-                    echo ".".$value['name'].":focus { ";
-                        echo $value['focus'];
+                    echo ".".esc_attr($value['name']).":focus { ";
+                        echo esc_attr($value['focus']);
                     echo "} ";
                 }
         }
@@ -74,9 +77,9 @@ class StudioImmens_CSS_Classes {
 
     public function compatibility_notice() {
         echo '<div class="error"><p>';
-        printf(
-            __('Studio Immens CSS Classes requires WordPress 5.0 or higher. Your version is %s.', 'studioimmens-css'),
-            get_bloginfo('version')
+        printf(/* translators: CSS Classes requires WordPress 5.0 or higher */
+            esc_html__('Studio Immens CSS Classes requires WordPress 5.0 or higher. Your version is %s.', 'studioimmens-css-classes'),
+            esc_attr(get_bloginfo('version'))
         );
         echo '</p></div>';
     }
@@ -84,13 +87,21 @@ class StudioImmens_CSS_Classes {
     // Menu admin
     public function admin_menu() {
         add_menu_page(
-            __('CSS Classes', 'studioimmens-css'),
-            __('CSS Classes', 'studioimmens-css'),
+            esc_html__('CSS Classes', 'studioimmens-css-classes'),
+            esc_html__('CSS Classes', 'studioimmens-css-classes'),
             'manage_options',
             'studioimmens-css',
             [$this, 'admin_page'],
             'dashicons-art',
             80
+        );
+        add_submenu_page(
+            'studioimmens-css',
+            esc_html__('Studio Immens', 'studioimmens-css-classes'),
+            esc_html__('Studio Immens', 'studioimmens-css-classes'),
+            'manage_options',
+            'studioimmens-page',
+            [$this, 'studioimmens_page']
         );
     }
 
@@ -99,18 +110,22 @@ class StudioImmens_CSS_Classes {
         include SI_CSS_PATH . 'admin/admin-ui.php';
     }
 
+    public function studioimmens_page() {
+        include SI_CSS_PATH . 'admin/studioimmens.php';
+    }
+
     // Script admin
     public function admin_scripts($hook) {
         if ($hook === 'toplevel_page_studioimmens-css') {
-            wp_enqueue_style('si-css-admin', SI_CSS_URL . 'assets/admin.css');
-            wp_enqueue_script('si-css-admin', SI_CSS_URL . 'assets/admin.js', ['jquery'], null, true);
+            wp_enqueue_style('si-css-admin', SI_CSS_URL . 'assets/admin.css', array(), SI_CSS_VERSION );
+            wp_enqueue_script('si-css-admin', SI_CSS_URL . 'assets/admin.js', ['jquery'], SI_CSS_VERSION, true);
 
              wp_localize_script('si-css-admin', 'siCssAdmin', [
                 'ajax_url' => admin_url('admin-ajax.php'),
                 'nonce' => wp_create_nonce('si_css_nonce'),
-                'delete' => __('Delete', 'studioimmens-css'),
-                'preview' => __('Preview', 'studioimmens-css'),
-                'edit' => __('Edit', 'studioimmens-css')
+                'delete' => esc_html__('Delete', 'studioimmens-css-classes'),
+                'preview' => esc_html__('Preview', 'studioimmens-css-classes'),
+                'edit' => esc_html__('Edit', 'studioimmens-css-classes')
             ]);
         }
     }
@@ -133,13 +148,13 @@ class StudioImmens_CSS_Classes {
         wp_localize_script('si-css-editor', 'siCssData', [
             'classes' => get_option('si_css_classes', []),
             'labels' => [
-                'title' => __('CSS Classes', 'studioimmens-css'),
-                'select' => __('Select Class', 'studioimmens-css'),
-                'preview' => __('Preview', 'studioimmens-css')
+                'title' => esc_html__('CSS Classes', 'studioimmens-css-classes'),
+                'select' => esc_html__('Select Class', 'studioimmens-css-classes'),
+                'preview' => esc_html__('Preview', 'studioimmens-css-classes')
             ]
         ]);
         
-        wp_enqueue_style('si-css-editor', SI_CSS_URL . 'assets/editor.css');
+        wp_enqueue_style('si-css-editor', SI_CSS_URL . 'assets/editor.css', array(), SI_CSS_VERSION );
     }
 
         // Handler AJAX per salvataggio
@@ -162,10 +177,10 @@ class StudioImmens_CSS_Classes {
         
         $new_class = array(
             'id' => uniqid(),
-            'name' => sanitize_text_field($_POST['name']),
-            'css' => sanitize_textarea_field($_POST['css']),
-            'hover' => sanitize_textarea_field($_POST['hover']),
-            'focus' => sanitize_textarea_field($_POST['focus'])
+            'name' => (!empty( sanitize_text_field(wp_unslash($_POST['name'])) ))?sanitize_text_field(wp_unslash($_POST['name'])):'',
+            'css' =>  (!empty( sanitize_text_field(wp_unslash($_POST['css'])) ))?sanitize_text_field(wp_unslash($_POST['css'])):'',
+            'hover' =>  (!empty( sanitize_text_field(wp_unslash($_POST['hover'])) ))?sanitize_text_field(wp_unslash($_POST['hover'])):'',
+            'focus' =>  (!empty( sanitize_text_field(wp_unslash($_POST['focus'])) ))?sanitize_text_field(wp_unslash($_POST['focus'])):'',
         );
         
         $classes[] = $new_class;
@@ -187,16 +202,16 @@ class StudioImmens_CSS_Classes {
         }
         
         $classes = get_option('si_css_classes', []);
-        $id = sanitize_text_field($_POST['id']);
+        $id = (!empty( sanitize_text_field(wp_unslash($_POST['id'])) ))?sanitize_text_field(wp_unslash($_POST['id'])):'';
 
         foreach ($classes as $key => $value) {
             if (isset($value['id']) && $value['id'] == $id) {
                 $classes[$key] = array(
                     'id' => $id,
-                    'name' => sanitize_text_field($_POST['name']),
-                    'css' => sanitize_textarea_field($_POST['css']),
-                    'hover' => sanitize_textarea_field($_POST['hover']),
-                    'focus' => sanitize_textarea_field($_POST['focus'])
+                    'name' => (!empty( sanitize_text_field(wp_unslash($_POST['name'])) ))?sanitize_text_field(wp_unslash($_POST['name'])):'',
+                    'css' =>  (!empty( sanitize_text_field(wp_unslash($_POST['css'])) ))?sanitize_text_field(wp_unslash($_POST['css'])):'',
+                    'hover' =>  (!empty( sanitize_text_field(wp_unslash($_POST['hover'])) ))?sanitize_text_field(wp_unslash($_POST['hover'])):'',
+                    'focus' =>  (!empty( sanitize_text_field(wp_unslash($_POST['focus'])) ))?sanitize_text_field(wp_unslash($_POST['focus'])):'',
                 );
             }
         }
@@ -220,7 +235,7 @@ class StudioImmens_CSS_Classes {
         }
         
         $classes = get_option('si_css_classes', []);
-        $id = sanitize_text_field($_POST['id']);
+        $id = sanitize_text_field(wp_unslash($_POST['id']));
         
         $updated = array_filter($classes, function($cls) use ($id) {
             return $cls['id'] !== $id;
@@ -237,3 +252,13 @@ new StudioImmens_CSS_Classes();
 register_activation_hook(__FILE__, function() {
     add_option('si_css_classes', []);
 });
+
+
+function SI_CC_check( $var ){
+    if ( isset($var) && !empty($var) ) {
+        return true;
+    }else{ 
+        return false;
+    }
+}
+
