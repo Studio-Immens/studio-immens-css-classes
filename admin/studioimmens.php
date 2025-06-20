@@ -60,8 +60,6 @@
   </style>
 </head>
 <body>
-  <?php esc_html_e('', 'studioimmens-css-classes');?>
-
   <div class="container">
     <h1><?php esc_html_e('Who is Studio Immens', 'studioimmens-css-classes');?><br><?php esc_html_e('and why you can trust us', 'studioimmens-css-classes');?></h1>
     <p><?php esc_html_e('Studio Immens is a tech company that develops ', 'studioimmens-css-classes');?> <span class="highlight"><?php esc_html_e('high-performance digital tools', 'studioimmens-css-classes');?></span><?php esc_html_e(' for professionals, entrepreneurs and companies: WordPress plugins, CRM, automations, landing pages and complete systems ready to sell.', 'studioimmens-css-classes');?> </p>
