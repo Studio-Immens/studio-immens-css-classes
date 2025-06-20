@@ -1,6 +1,6 @@
 
 <head>
-  <title>Studio Immens – Chi siamo</title>
+  <title><?php esc_html_e('Studio Immens – Chi siamo', 'studioimmens-css-classes'); ?></title>
   <style>
     body {
       margin: 0;
@@ -60,29 +60,31 @@
   </style>
 </head>
 <body>
+  <?php esc_html_e('', 'studioimmens-css-classes');?>
+
   <div class="container">
-    <h1>Chi è Studio Immens<br>e perché puoi fidarti di noi</h1>
-    <p>Studio Immens è una tech company italiana che sviluppa <span class="highlight">strumenti digitali ad alte performance</span> per professionisti, imprenditori e aziende: plugin WordPress, CRM, automazioni, landing page e sistemi completi pronti a vendere.</p>
-    <p>Se stai usando questo plugin, stai già entrando in un ecosistema più grande, progettato per farti <strong>guadagnare di più, automatizzare tutto il possibile</strong> e <strong>lavorare in modo intelligente</strong>.</p>
+    <h1><?php esc_html_e('Who is Studio Immens', 'studioimmens-css-classes');?><br><?php esc_html_e('and why you can trust us', 'studioimmens-css-classes');?></h1>
+    <p><?php esc_html_e('Studio Immens is a tech company that develops ', 'studioimmens-css-classes');?> <span class="highlight"><?php esc_html_e('high-performance digital tools', 'studioimmens-css-classes');?></span><?php esc_html_e(' for professionals, entrepreneurs and companies: WordPress plugins, CRM, automations, landing pages and complete systems ready to sell.', 'studioimmens-css-classes');?> </p>
+    <p><?php esc_html_e('If you are using this plugin, you are already entering a larger ecosystem, designed to make you', 'studioimmens-css-classes');?> <strong><?php esc_html_e('earn more, automate everything possible ', 'studioimmens-css-classes');?></strong> <strong><?php esc_html_e('and work intelligently.', 'studioimmens-css-classes');?></strong></p>
     
-    <h2>🎯 Cosa facciamo (e cosa NON facciamo)</h2>
-    <p>Non siamo una web agency qualsiasi. Non vendiamo “siti vetrina” o progetti senza strategia.</p>
-    <p>Realizziamo <strong>sistemi digitali chiavi in mano</strong> basati su infrastrutture cloud OVH, automazioni avanzate e marketing a risposta diretta, su misura per il tuo settore.</p>
+    <h2>🎯 <?php esc_html_e(' What we do (and what we DON\'T do)', 'studioimmens-css-classes');?></h2>
+    <p><?php esc_html_e('We are not a web agency. We do not sell "showcase sites" or projects without a strategy.', 'studioimmens-css-classes');?></p>
+    <p><?php esc_html_e('We create', 'studioimmens-css-classes');?> <strong><?php esc_html_e('turnkey digital systems', 'studioimmens-css-classes');?></strong><?php esc_html_e('based on OVH cloud infrastructures, advanced automations and direct response marketing, tailored to your sector.', 'studioimmens-css-classes');?> </p>
 
-    <h2>🔧 Tecnologia + Metodo = Risultato</h2>
-    <p>Usiamo solo strumenti proprietari, modulari e integrabili: <span class="highlight">WordPress, WooCommerce, Mautic, EspoCRM, Metabase, n8n</span>. Tutti connessi e al tuo servizio.</p>
-    <p>Ogni plugin è pensato per essere parte di una macchina da guerra digitale che funziona anche quando tu non lavori.</p>
+    <h2>🔧 <?php esc_html_e('Technology + Method = Result', 'studioimmens-css-classes');?></h2>
+    <p><?php esc_html_e('We only use proprietary, modular and integrable tools: ', 'studioimmens-css-classes');?><span class="highlight">WordPress, WooCommerce, Mautic, EspoCRM, Metabase, n8n.</span><?php esc_html_e('All connected and at your service.', 'studioimmens-css-classes');?> </p>
+    <p><?php esc_html_e('Each plugin is designed to be part of a digital war machine that works even when you are not working.', 'studioimmens-css-classes');?></p>
 
-    <h2>📈 Il nostro obiettivo è uno solo</h2>
-    <p>Aiutarti a <strong>scalare il tuo business digitale</strong> con un sistema semplice, efficace e replicabile. E accompagnarti passo dopo passo con assistenza umana, reale e professionale.</p>
+    <h2>📈 <?php esc_html_e('Our goal is only one', 'studioimmens-css-classes');?></h2>
+    <p><?php esc_html_e('Help you', 'studioimmens-css-classes');?> <strong><?php esc_html_e('scale your digital business ', 'studioimmens-css-classes');?></strong><?php esc_html_e('with a simple, effective and replicable system. And accompany you step by step with human, real and professional assistance.', 'studioimmens-css-classes');?> </p>
 
     <a class="immens-btn" href="https://studioimmens.com" target="_blank" rel="noopener noreferrer">
-      Scopri Studio Immens
+      <?php esc_html_e('Discover Studio Immens', 'studioimmens-css-classes');?>
     </a>
 
     <div class="footer">
-      Plugin sviluppato da <strong>Studio Immens</strong><br>
-      Visita <a href="https://studioimmens.com" target="_blank">studioimmens.com</a> per conoscere tutti i nostri strumenti e servizi.
+      <?php esc_html_e('Plugin developed by ', 'studioimmens-css-classes');?> <strong>Studio Immens</strong><br>
+      <?php esc_html_e('Visit', 'studioimmens-css-classes');?> <a href="https://studioimmens.com" target="_blank">studioimmens.com</a> <?php esc_html_e('to learn about all our tools and services.', 'studioimmens-css-classes');?>
     </div>
   </div>
 </body>

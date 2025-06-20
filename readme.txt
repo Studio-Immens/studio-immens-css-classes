@@ -6,7 +6,7 @@ Tested up to:       6.8
 Requires PHP:       7.4  
 Stable tag:         1.0.0  
 License:            GPLv2 or later  
-License URI:        https://www.gnu.org/licenses/gpl-3.0.html  
+License URI:        https://www.gnu.org/licenses/gpl-2.0.html  
 
 Crea il tuo set di classi CSS personalizzate, subito pronte all’uso con un click, per migliorare il design dei tuoi blocchi Gutenberg.
 

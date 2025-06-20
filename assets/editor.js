@@ -71,14 +71,14 @@
                             className: 'studioimmens-css-control'
                         },
                         createElement(TextControl, {
-                            label: __('Search Classes', 'studioimmens-css'),
+                            label: siCssData.labels.search,
                             value: searchTerm,
                             onChange: setSearchTerm,
-                            placeholder: __('Type to search...', 'studioimmens-css')
+                            placeholder: siCssData.labels.ttos
                         }),
                         
                         createElement(ToggleControl, {
-                            label: __('Live Preview', 'studioimmens-css'),
+                            label: siCssData.labels.livep,
                             checked: showPreview,
                             onChange: () => {
                                 setShowPreview(!showPreview);
@@ -110,7 +110,7 @@
                                         )
                                     );
                                 })
-                            : createElement('p', null, __('No classes found', 'studioimmens-css'))
+                            : createElement('p', null, siCssData.labels.nofound)
                         )
                     )
                 )

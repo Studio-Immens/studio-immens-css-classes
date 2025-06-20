@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Studio Immens CSS Classes
-Description: Aggiungi classi CSS personalizzate ai blocchi Gutenberg con anteprima live.
+Description: Add custom CSS classes to Gutenberg blocks with live preview.
 Version: 1.0.0
 Author: Studio Immens
 Text Domain: studioimmens-css-classes
@@ -125,7 +125,7 @@ class StudioImmens_CSS_Classes {
                 'nonce' => wp_create_nonce('si_css_nonce'),
                 'delete' => esc_html__('Delete', 'studioimmens-css-classes'),
                 'preview' => esc_html__('Preview', 'studioimmens-css-classes'),
-                'edit' => esc_html__('Edit', 'studioimmens-css-classes')
+                'edit' => esc_html__('Edit', 'studioimmens-css-classes'),
             ]);
         }
     }
@@ -150,7 +150,11 @@ class StudioImmens_CSS_Classes {
             'labels' => [
                 'title' => esc_html__('CSS Classes', 'studioimmens-css-classes'),
                 'select' => esc_html__('Select Class', 'studioimmens-css-classes'),
-                'preview' => esc_html__('Preview', 'studioimmens-css-classes')
+                'preview' => esc_html__('Preview', 'studioimmens-css-classes'),
+                'search' => esc_html__('Search Classes', 'studioimmens-css-classes'),
+                'ttos' => esc_html__('Type to search...', 'studioimmens-css-classes'),
+                'livep' => esc_html__('Live Preview', 'studioimmens-css-classes'),
+                'nofound' => esc_html__('No classes found', 'studioimmens-css-classes'),
             ]
         ]);
         
