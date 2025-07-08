@@ -81,7 +81,7 @@ Plugin WordPress di Studio Immens
 Sviluppato da Studio Immens
 Soluzioni digitali modulari per professionisti, imprese e web agency.
 
-👉 Visita www.studioimmens.com per scoprire plugin, app, CRM e sistemi pronti a vendere.
+👉 Visita studioimmens.com per scoprire plugin, app, CRM e sistemi pronti a vendere.
 
 📄 Licenza
 GNU General Public License v2.0
