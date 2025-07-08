@@ -1,0 +1,254 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Studio Immens CSS Classes\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-08 20:27+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.0; wp-6.8.1; php-8.2.12\n"
+"X-Domain: studio-immens-css-classes"
+
+#: admin/studioimmens.php:65
+msgid ""
+" for professionals, entrepreneurs and companies: WordPress plugins, CRM, "
+"automations, landing pages and complete systems ready to sell."
+msgstr ""
+
+#: admin/studioimmens.php:68
+msgid " What we do (and what we DON'T do)"
+msgstr ""
+
+#. Description of the plugin
+msgid "Add custom CSS classes to Gutenberg blocks with live preview."
+msgstr ""
+
+#: admin/admin-ui.php:8
+msgid "Add New CSS Class"
+msgstr ""
+
+#: admin/studioimmens.php:73
+msgid "All connected and at your service."
+msgstr ""
+
+#: admin/studioimmens.php:64
+msgid "and why you can trust us"
+msgstr ""
+
+#: admin/studioimmens.php:66
+msgid "and work intelligently."
+msgstr ""
+
+#: admin/studioimmens.php:70
+msgid ""
+"based on OVH cloud infrastructures, advanced automations and direct response "
+"marketing, tailored to your sector."
+msgstr ""
+
+#: admin/admin-ui.php:30
+msgid "Class :focus"
+msgstr ""
+
+#: admin/admin-ui.php:25
+msgid "Class :hover"
+msgstr ""
+
+#: admin/admin-ui.php:20
+msgid "Class Code"
+msgstr ""
+
+#: admin/admin-ui.php:14
+msgid "Class Name"
+msgstr ""
+
+#: admin/admin-ui.php:76
+msgid "classes"
+msgstr ""
+
+#: studioimmens-css-classes.php:97 studioimmens-css-classes.php:98
+#: studioimmens-css-classes.php:165
+msgid "CSS Classes"
+msgstr ""
+
+#: studioimmens-css-classes.php:133
+msgid "Delete"
+msgstr ""
+
+#: admin/studioimmens.php:80
+msgid "Discover Studio Immens"
+msgstr ""
+
+#: admin/studioimmens.php:74
+msgid ""
+"Each plugin is designed to be part of a digital war machine that works even "
+"when you are not working."
+msgstr ""
+
+#: admin/studioimmens.php:66
+msgid "earn more, automate everything possible "
+msgstr ""
+
+#: studioimmens-css-classes.php:135
+msgid "Edit"
+msgstr ""
+
+#: admin/admin-ui.php:48
+msgid "Enable Live Preview"
+msgstr ""
+
+#: admin/admin-ui.php:73
+msgid "Export"
+msgstr ""
+
+#: admin/studioimmens.php:77
+msgid "Help you"
+msgstr ""
+
+#: admin/studioimmens.php:65
+msgid "high-performance digital tools"
+msgstr ""
+
+#: admin/studioimmens.php:66
+msgid ""
+"If you are using this plugin, you are already entering a larger ecosystem, "
+"designed to make you"
+msgstr ""
+
+#: admin/admin-ui.php:72
+msgid "Import"
+msgstr ""
+
+#: studioimmens-css-classes.php:170 admin/admin-ui.php:44
+msgid "Live Preview"
+msgstr ""
+
+#: admin/admin-ui.php:53
+msgid ""
+"Lorem Ipsum is simply dummy text of <br>the printing and typesetting "
+"industry."
+msgstr ""
+
+#: studioimmens-css-classes.php:171
+msgid "No classes found"
+msgstr ""
+
+#: admin/studioimmens.php:76
+msgid "Our goal is only one"
+msgstr ""
+
+#: admin/studioimmens.php:84
+msgid "Plugin developed by "
+msgstr ""
+
+#: studioimmens-css-classes.php:134 studioimmens-css-classes.php:167
+msgid "Preview"
+msgstr ""
+
+#: admin/admin-ui.php:35
+msgid "Save Class"
+msgstr ""
+
+#: admin/studioimmens.php:77
+msgid "scale your digital business "
+msgstr ""
+
+#: studioimmens-css-classes.php:168
+msgid "Search Classes"
+msgstr ""
+
+#: admin/admin-ui.php:71
+msgid "Search classes..."
+msgstr ""
+
+#: studioimmens-css-classes.php:166
+msgid "Select Class"
+msgstr ""
+
+#. Author of the plugin
+#: studioimmens-css-classes.php:107 studioimmens-css-classes.php:108
+msgid "Studio Immens"
+msgstr ""
+
+#. Name of the plugin
+#: admin/admin-ui.php:2
+msgid "Studio Immens CSS Classes"
+msgstr ""
+
+#. CSS Classes requires WordPress 5.0 or higher
+#: studioimmens-css-classes.php:88
+#, php-format
+msgid ""
+"Studio Immens CSS Classes requires WordPress 5.0 or higher. Your version is "
+"%s."
+msgstr ""
+
+#: admin/studioimmens.php:65
+msgid "Studio Immens is a tech company that develops "
+msgstr ""
+
+#: admin/studioimmens.php:3
+msgid "Studio Immens – Chi siamo"
+msgstr ""
+
+#: admin/studioimmens.php:72
+msgid "Technology + Method = Result"
+msgstr ""
+
+#: admin/studioimmens.php:85
+msgid "to learn about all our tools and services."
+msgstr ""
+
+#: admin/studioimmens.php:70
+msgid "turnkey digital systems"
+msgstr ""
+
+#: studioimmens-css-classes.php:169
+msgid "Type to search..."
+msgstr ""
+
+#: admin/admin-ui.php:3
+msgid "View Pro Features"
+msgstr ""
+
+#: admin/studioimmens.php:85
+msgid "Visit"
+msgstr ""
+
+#: admin/studioimmens.php:69
+msgid ""
+"We are not a web agency. We do not sell \"showcase sites\" or projects "
+"without a strategy."
+msgstr ""
+
+#: admin/studioimmens.php:70
+msgid "We create"
+msgstr ""
+
+#: admin/studioimmens.php:73
+msgid "We only use proprietary, modular and integrable tools: "
+msgstr ""
+
+#: admin/studioimmens.php:64
+msgid "Who is Studio Immens"
+msgstr ""
+
+#: admin/studioimmens.php:77
+msgid ""
+"with a simple, effective and replicable system. And accompany you step by "
+"step with human, real and professional assistance."
+msgstr ""
+
+#: admin/admin-ui.php:16
+msgid "Without dot (e.g. \"my-class\")"
+msgstr ""
+
+#: admin/admin-ui.php:67
+msgid "Your CSS Classes"
+msgstr ""
