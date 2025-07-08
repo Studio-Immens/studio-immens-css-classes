@@ -5,7 +5,7 @@
 ⚡️ Crea il tuo set di classi CSS personalizzate, subito pronte all’uso con un click, per migliorare il design dei tuoi blocchi Gutenberg.  
 Sviluppato da [Studio Immens](https://www.studioimmens.com) – Sistemi digitali modulari per imprenditori e professionisti.
 
-![Screenshot](https://raw.githubusercontent.com/Immens95/studioimmens-css-classes/main/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/Immens95/studio-immens-css-classes/main/screenshot.png)
 
 ---
 
@@ -35,8 +35,8 @@ Questo plugin ti permette di creare **classi personalizzate e aggiungerle dirett
 
 1. Scarica o clona il repository:
    ```bash
-   git clone https://github.com/Immens95/studioimmens-css-classes.git
-Copia la cartella studioimmens-css-classes nella directory /wp-content/plugins/
+   git clone https://github.com/Immens95/studio-immens-css-classes.git
+Copia la cartella studio-immens-css-classes nella directory /wp-content/plugins/
 
 Attiva il plugin da Plugin > Plugin installati in WordPress
 
