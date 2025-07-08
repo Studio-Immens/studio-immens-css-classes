@@ -30,7 +30,7 @@ class StudioImmens_CSS_Classes {
         add_action('enqueue_block_editor_assets', [$this, 'editor_assets']);
         
         // Traduzioni
-        load_plugin_textdomain('studio-immens-css-classes', false, basename(dirname(__FILE__)) . '/languages');
+        // load_plugin_textdomain('studio-immens-css-classes', false, basename(dirname(__FILE__)) . '/languages');
 
         add_action('wp_ajax_nopriv_si_get_css_classes', function() {
             wp_send_json_error('Not logged in', 401);
