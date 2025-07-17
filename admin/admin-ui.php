@@ -1,6 +1,6 @@
 <div class="si-css-admin wrap">
     <h1 class="si-title"><?php esc_html_e('Studio Immens CSS Classes', 'studio-immens-css-classes'); ?>
-        <a href="https://studioimmens.com" class="immens-btn"><?php esc_html_e('View Pro Features', 'studio-immens-css-classes'); ?></a>
+        <a href="https://studioimmens.com/css-class-pro" class="immens-btn"><?php esc_html_e('View Pro Features', 'studio-immens-css-classes'); ?></a>
     </h1>
     <div class="si-form-container">
         <div class="si-form-column">
