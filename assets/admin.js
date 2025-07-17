@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
         const searchTerm = $search.val().toString().toLowerCase(); // Converti sempre a stringa
         
         $.post(ajaxurl, {
-            action: 'si_get_css_classes',
+            action: 'sicc_get_css_classes',
             security: siCssAdmin.nonce
         }, function(response) {
             if (response.success) {
@@ -90,6 +90,8 @@ jQuery(document).ready(function($) {
         e.preventDefault();
         const css = $(this).attr('data-name');
 
+        $('.si-preview-class').text($('.si-preview-class').text()+' '+css);
+
         $preview.addClass(css);
     });
 
@@ -141,7 +143,7 @@ jQuery(document).ready(function($) {
         const eon = $('#edit-or-not').val();
         if ( eon == 'no' ) {
             $.post(ajaxurl, {
-                action: 'si_save_css_class',
+                action: 'sicc_save_css_class',
                 name: name,
                 css: css,
                 hover: hover,
@@ -162,7 +164,7 @@ jQuery(document).ready(function($) {
             });
         } else {
             $.post(ajaxurl, {
-                action: 'si_edit_css_class',
+                action: 'sicc_edit_css_class',
                 id: id,
                 name: name,
                 css: css,
@@ -193,7 +195,7 @@ jQuery(document).ready(function($) {
         const id = $(this).closest('.si-class-card').attr('data-id');
         
         $.post(ajaxurl, {
-            action: 'si_delete_css_class',
+            action: 'sicc_delete_css_class',
             id: id,
             security: siCssAdmin.nonce  // Aggiungi questo
         }, loadClasses);
@@ -217,6 +219,7 @@ jQuery(document).ready(function($) {
 
         $('#si-dummy-content').removeAttr('class');
         $("#si-dummy-content").attr('class', 'si-dummy-content');
+        $('.si-preview-class').text('');
     });
 
     $classCss.on('change', function(e) {

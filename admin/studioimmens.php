@@ -1,63 +1,6 @@
 
 <head>
   <title><?php esc_html_e('Studio Immens – Chi siamo', 'studio-immens-css-classes'); ?></title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background-color: #e4f1f9;
-      color: #14191f;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      background: #fff;
-      border: 1px solid #ccd0d4;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    h1 {
-      color: #1f9aff;
-      font-size: 2.2rem;
-      margin-bottom: 0.5em;
-      line-height: normal;
-    }
-    h2 {
-      color: #00c7b1;
-      font-size: 1.4rem;
-      margin-top: 2em;
-    }
-    p {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 1.5em;
-    }
-    .cta {
-      display: inline-block;
-      padding: 14px 28px;
-      margin-top: 30px;
-      background-color: #1f9aff;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
-    .cta:hover {
-      background-color: #0074cc;
-    }
-    .highlight {
-      color: #9B51E0;
-      font-weight: bold;
-    }
-    .footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #555;
-      text-align: center;
-    }
-  </style>
 </head>
 <body>
   <div class="container">

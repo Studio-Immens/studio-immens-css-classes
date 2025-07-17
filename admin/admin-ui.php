@@ -48,6 +48,7 @@
                         <?php esc_html_e('Enable Live Preview', 'studio-immens-css-classes');?>
                     </label>
                     <input type="button" id="remove-class" class="immens-btn" value="Clear">
+                    <div class="si-preview-class"></div>
                 </div>
                 <div id="si-dummy-content" class="si-dummy-content">
                     <?php esc_html_e('Lorem Ipsum is simply dummy text of <br>the printing and typesetting industry.', 'studio-immens-css-classes'); ?><br>
