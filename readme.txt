@@ -1,5 +1,5 @@
 === Studio Immens CSS Classes ===
-Contributors:       Studio Immens
+Contributors:       innovazioneweb
 Tags:               css, utility classes, design, frontend, custom classes  
 Requires at least:  5.8  
 Tested up to:       6.8  
