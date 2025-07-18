@@ -1,5 +1,5 @@
 === Studio Immens CSS Classes ===
-Contributors:       innovazioneweb
+Contributors: innovazioneweb
 Tags:               css, utility classes, design, frontend, custom classes  
 Requires at least:  5.8  
 Tested up to:       6.8  
@@ -54,6 +54,11 @@ Certo. Vai nella sezione CSS Classe e crea tutte le classi con le proprietà che
 
 = Il plugin rallenta il sito? =  
 No. Il file CSS è minimale, caricato in modo ottimizzato e non include JavaScript.
+
+== Screenshots ==
+
+1. Sezione admin per creare e modificare classi CSS personalizzate.
+2. Interfaccia per inserire classi CSS personalizzate nei blocchi.
 
 == Changelog ==
 
