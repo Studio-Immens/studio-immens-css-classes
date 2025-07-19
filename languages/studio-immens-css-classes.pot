@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Studio Immens CSS Classes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-19 07:29+0000\n"
+"POT-Creation-Date: 2025-07-19 08:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -72,12 +72,16 @@ msgstr ""
 msgid "classes"
 msgstr ""
 
-#: studio-immens-css-classes.php:99 studio-immens-css-classes.php:100
-#: studio-immens-css-classes.php:159
+#: studio-immens-css-classes.php:96 studio-immens-css-classes.php:97
+#: studio-immens-css-classes.php:156
 msgid "CSS Classes"
 msgstr ""
 
-#: studio-immens-css-classes.php:136
+#: studio-immens-css-classes.php:171
+msgid "Custom CSS"
+msgstr ""
+
+#: studio-immens-css-classes.php:133
 msgid "Delete"
 msgstr ""
 
@@ -95,12 +99,16 @@ msgstr ""
 msgid "earn more, automate everything possible "
 msgstr ""
 
-#: studio-immens-css-classes.php:138
+#: studio-immens-css-classes.php:135
 msgid "Edit"
 msgstr ""
 
 #: admin/admin-ui.php:48
 msgid "Enable Live Preview"
+msgstr ""
+
+#: studio-immens-css-classes.php:172
+msgid "Enter CSS to apply to this post:"
 msgstr ""
 
 #: admin/admin-ui.php:74
@@ -129,7 +137,7 @@ msgstr ""
 msgid "innovazioneweb"
 msgstr ""
 
-#: studio-immens-css-classes.php:164 admin/admin-ui.php:44
+#: studio-immens-css-classes.php:161 admin/admin-ui.php:44
 msgid "Live Preview"
 msgstr ""
 
@@ -139,7 +147,7 @@ msgid ""
 "industry."
 msgstr ""
 
-#: studio-immens-css-classes.php:165
+#: studio-immens-css-classes.php:162
 msgid "No classes found"
 msgstr ""
 
@@ -151,7 +159,7 @@ msgstr ""
 msgid "Plugin developed by "
 msgstr ""
 
-#: studio-immens-css-classes.php:137 studio-immens-css-classes.php:161
+#: studio-immens-css-classes.php:134 studio-immens-css-classes.php:158
 msgid "Preview"
 msgstr ""
 
@@ -163,7 +171,7 @@ msgstr ""
 msgid "scale your digital business "
 msgstr ""
 
-#: studio-immens-css-classes.php:162
+#: studio-immens-css-classes.php:159
 msgid "Search Classes"
 msgstr ""
 
@@ -171,11 +179,11 @@ msgstr ""
 msgid "Search classes..."
 msgstr ""
 
-#: studio-immens-css-classes.php:160
+#: studio-immens-css-classes.php:157
 msgid "Select Class"
 msgstr ""
 
-#: studio-immens-css-classes.php:109 studio-immens-css-classes.php:110
+#: studio-immens-css-classes.php:106 studio-immens-css-classes.php:107
 msgid "Studio Immens"
 msgstr ""
 
@@ -185,7 +193,7 @@ msgid "Studio Immens CSS Classes"
 msgstr ""
 
 #. CSS Classes requires WordPress 5.0 or higher
-#: studio-immens-css-classes.php:90
+#: studio-immens-css-classes.php:87
 #, php-format
 msgid ""
 "Studio Immens CSS Classes requires WordPress 5.0 or higher. Your version is "
@@ -212,7 +220,7 @@ msgstr ""
 msgid "turnkey digital systems"
 msgstr ""
 
-#: studio-immens-css-classes.php:163
+#: studio-immens-css-classes.php:160
 msgid "Type to search..."
 msgstr ""
 

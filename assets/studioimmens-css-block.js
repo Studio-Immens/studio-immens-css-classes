@@ -7,7 +7,7 @@ console.log( 'Studio Immens css block is loaded' );
     const { __ } = i18n;
 
     registerBlockType( 'studioimmens/css-editor', {
-        title: __( 'CSS Personalizzato', 'studio-immens-css-classes' ),
+        title: siCssDataBlock.labels.title || 'Custom CSS',
         icon: 'editor-code',
         category: 'design',
         attributes: {
@@ -20,7 +20,7 @@ console.log( 'Studio Immens css block is loaded' );
             return el(
                 'div',
                 { className: props.className + ' studioimmens-css-editor-block' },
-                el( 'p', {}, __( 'Inserisci CSS da applicare a questo post:', 'studio-immens-css-classes' ) ),
+                el( 'p', {}, siCssDataBlock.labels.desc || 'Enter CSS to apply to this post:' ),
                 el( PlainText, {
                     value: props.attributes.cssCode,
                     onChange: function( value ) {

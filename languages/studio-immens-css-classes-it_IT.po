@@ -3,19 +3,19 @@ msgstr ""
 "Project-Id-Version: Studio Immens CSS Classes\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-19 22:46+0000\n"
-"PO-Revision-Date: 2025-07-08 20:34+0000\n"
+"PO-Revision-Date: 2025-07-19 08:58+0000\n"
 "Last-Translator: \n"
-"Language-Team: Italiano\n"
+"Language-Team: Italian\n"
 "Language: it-IT\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.0; wp-6.8.1; php-8.2.12\n"
+"X-Loco-Version: 2.8.0; wp-6.8.2; php-8.2.12\n"
 "X-Domain: studio-immens-css-classes"
 
-#: admin/studioimmens.php:65
+#: admin/studioimmens.php:8
 msgid ""
 " for professionals, entrepreneurs and companies: WordPress plugins, CRM, "
 "automations, landing pages and complete systems ready to sell."
@@ -23,7 +23,7 @@ msgstr ""
 " per professionisti, imprenditori e aziende: plugin WordPress, CRM, "
 "automazioni, landing page e sistemi completi pronti a vendere."
 
-#: admin/studioimmens.php:68
+#: admin/studioimmens.php:11
 msgid " What we do (and what we DON'T do)"
 msgstr "Cosa facciamo (e cosa NON facciamo)"
 
@@ -36,19 +36,19 @@ msgstr ""
 msgid "Add New CSS Class"
 msgstr "Aggiungi nuova classe CSS"
 
-#: admin/studioimmens.php:73
+#: admin/studioimmens.php:16
 msgid "All connected and at your service."
 msgstr "Tutto connesso e al tuo servizio."
 
-#: admin/studioimmens.php:64
+#: admin/studioimmens.php:7
 msgid "and why you can trust us"
 msgstr "e perché puoi fidarti di noi"
 
-#: admin/studioimmens.php:66
+#: admin/studioimmens.php:9
 msgid "and work intelligently."
 msgstr "e lavorare in modo intelligente."
 
-#: admin/studioimmens.php:70
+#: admin/studioimmens.php:13
 msgid ""
 "based on OVH cloud infrastructures, advanced automations and direct response "
 "marketing, tailored to your sector."
@@ -72,24 +72,28 @@ msgstr "Codice della classe"
 msgid "Class Name"
 msgstr "Nome della classe"
 
-#: admin/admin-ui.php:76
+#: admin/admin-ui.php:77
 msgid "classes"
 msgstr "classi"
 
-#: studioimmens-css-classes.php:97 studioimmens-css-classes.php:98 
-#: studioimmens-css-classes.php:165
+#: studio-immens-css-classes.php:96 studio-immens-css-classes.php:97 
+#: studio-immens-css-classes.php:156
 msgid "CSS Classes"
 msgstr "Classi CSS"
 
-#: studioimmens-css-classes.php:133
+#: studio-immens-css-classes.php:171
+msgid "Custom CSS"
+msgstr "CSS Personalizzato"
+
+#: studio-immens-css-classes.php:133
 msgid "Delete"
 msgstr "Elimina"
 
-#: admin/studioimmens.php:80
+#: admin/studioimmens.php:23
 msgid "Discover Studio Immens"
 msgstr "Scopri Studio Immens"
 
-#: admin/studioimmens.php:74
+#: admin/studioimmens.php:17
 msgid ""
 "Each plugin is designed to be part of a digital war machine that works even "
 "when you are not working."
@@ -97,11 +101,11 @@ msgstr ""
 "Ogni plugin è progettato per essere parte di una macchina da guerra digitale "
 "che funziona anche quando non stai lavorando."
 
-#: admin/studioimmens.php:66
+#: admin/studioimmens.php:9
 msgid "earn more, automate everything possible "
 msgstr "guadagnare di più, automatizzare tutto il possibile"
 
-#: studioimmens-css-classes.php:135
+#: studio-immens-css-classes.php:135
 msgid "Edit"
 msgstr "Modifica"
 
@@ -109,19 +113,23 @@ msgstr "Modifica"
 msgid "Enable Live Preview"
 msgstr "Abilita anteprima live"
 
-#: admin/admin-ui.php:73
+#: studio-immens-css-classes.php:172
+msgid "Enter CSS to apply to this post:"
+msgstr "Inserisci il codice CSS da applicare a questo post:"
+
+#: admin/admin-ui.php:74
 msgid "Export"
 msgstr "Esportare"
 
-#: admin/studioimmens.php:77
+#: admin/studioimmens.php:20
 msgid "Help you"
 msgstr "Aiutarti"
 
-#: admin/studioimmens.php:65
+#: admin/studioimmens.php:8
 msgid "high-performance digital tools"
 msgstr "strumenti digitali ad alte prestazioni"
 
-#: admin/studioimmens.php:66
+#: admin/studioimmens.php:9
 msgid ""
 "If you are using this plugin, you are already entering a larger ecosystem, "
 "designed to make you"
@@ -129,15 +137,19 @@ msgstr ""
 "Se stai utilizzando questo plugin, stai già entrando in un ecosistema più "
 "ampio, progettato per farti"
 
-#: admin/admin-ui.php:72
+#: admin/admin-ui.php:73
 msgid "Import"
 msgstr "Importa"
 
-#: studioimmens-css-classes.php:170 admin/admin-ui.php:44
+#. Author of the plugin
+msgid "innovazioneweb"
+msgstr "innovazioneweb"
+
+#: studio-immens-css-classes.php:161 admin/admin-ui.php:44
 msgid "Live Preview"
 msgstr "Anteprima live"
 
-#: admin/admin-ui.php:53
+#: admin/admin-ui.php:54
 msgid ""
 "Lorem Ipsum is simply dummy text of <br>the printing and typesetting "
 "industry."
@@ -145,19 +157,19 @@ msgstr ""
 "Lorem Ipsum è semplicemente un testo fittizio <br>utilizzato nel settore "
 "della tipografia e della stampa.\n"
 
-#: studioimmens-css-classes.php:171
+#: studio-immens-css-classes.php:162
 msgid "No classes found"
 msgstr "Nessuna classe trovata"
 
-#: admin/studioimmens.php:76
+#: admin/studioimmens.php:19
 msgid "Our goal is only one"
 msgstr "Il nostro obiettivo è solo uno"
 
-#: admin/studioimmens.php:84
+#: admin/studioimmens.php:27
 msgid "Plugin developed by "
 msgstr "Plugin sviluppato da"
 
-#: studioimmens-css-classes.php:134 studioimmens-css-classes.php:167
+#: studio-immens-css-classes.php:134 studio-immens-css-classes.php:158
 msgid "Preview"
 msgstr "Anteprima"
 
@@ -165,24 +177,23 @@ msgstr "Anteprima"
 msgid "Save Class"
 msgstr "Salva classe"
 
-#: admin/studioimmens.php:77
+#: admin/studioimmens.php:20
 msgid "scale your digital business "
 msgstr "fai crescere il tuo business digitale"
 
-#: studioimmens-css-classes.php:168
+#: studio-immens-css-classes.php:159
 msgid "Search Classes"
 msgstr "Cerca classi"
 
-#: admin/admin-ui.php:71
+#: admin/admin-ui.php:72
 msgid "Search classes..."
 msgstr "Cerca classi..."
 
-#: studioimmens-css-classes.php:166
+#: studio-immens-css-classes.php:157
 msgid "Select Class"
 msgstr "Seleziona classe"
 
-#. Author of the plugin
-#: studioimmens-css-classes.php:107 studioimmens-css-classes.php:108
+#: studio-immens-css-classes.php:106 studio-immens-css-classes.php:107
 msgid "Studio Immens"
 msgstr "Studio Immens"
 
@@ -192,7 +203,7 @@ msgid "Studio Immens CSS Classes"
 msgstr "Studio Immens CSS Classes"
 
 #. CSS Classes requires WordPress 5.0 or higher
-#: studioimmens-css-classes.php:88
+#: studio-immens-css-classes.php:87
 #, php-format
 msgid ""
 "Studio Immens CSS Classes requires WordPress 5.0 or higher. Your version is "
@@ -201,7 +212,7 @@ msgstr ""
 "Studio Immens CSS Classes richiede WordPress 5.0 o versione successiva. La "
 "tua versione è %s."
 
-#: admin/studioimmens.php:65
+#: admin/studioimmens.php:8
 msgid "Studio Immens is a tech company that develops "
 msgstr ""
 "Studio Immens è un'azienda tecnologica che sviluppa\n"
@@ -210,19 +221,19 @@ msgstr ""
 msgid "Studio Immens – Chi siamo"
 msgstr "Studio Immens – Chi siamo"
 
-#: admin/studioimmens.php:72
+#: admin/studioimmens.php:15
 msgid "Technology + Method = Result"
 msgstr "Tecnologia + Metodo = Risultato"
 
-#: admin/studioimmens.php:85
+#: admin/studioimmens.php:28
 msgid "to learn about all our tools and services."
 msgstr "per scoprire tutti i nostri strumenti e servizi."
 
-#: admin/studioimmens.php:70
+#: admin/studioimmens.php:13
 msgid "turnkey digital systems"
 msgstr "sistemi digitali chiavi in ​​mano"
 
-#: studioimmens-css-classes.php:169
+#: studio-immens-css-classes.php:160
 msgid "Type to search..."
 msgstr "Digita per cercare..."
 
@@ -230,11 +241,11 @@ msgstr "Digita per cercare..."
 msgid "View Pro Features"
 msgstr "Visualizza le funzionalità Pro"
 
-#: admin/studioimmens.php:85
+#: admin/studioimmens.php:28
 msgid "Visit"
 msgstr "Visita"
 
-#: admin/studioimmens.php:69
+#: admin/studioimmens.php:12
 msgid ""
 "We are not a web agency. We do not sell \"showcase sites\" or projects "
 "without a strategy."
@@ -242,19 +253,19 @@ msgstr ""
 "Non siamo una web agency. Non vendiamo \"siti vetrina\" o progetti senza una "
 "strategia."
 
-#: admin/studioimmens.php:70
+#: admin/studioimmens.php:13
 msgid "We create"
 msgstr "Noi creiamo"
 
-#: admin/studioimmens.php:73
+#: admin/studioimmens.php:16
 msgid "We only use proprietary, modular and integrable tools: "
 msgstr "Utilizziamo solo strumenti proprietari, modulari e integrabili:"
 
-#: admin/studioimmens.php:64
+#: admin/studioimmens.php:7
 msgid "Who is Studio Immens"
 msgstr "Chi è Studio Immens"
 
-#: admin/studioimmens.php:77
+#: admin/studioimmens.php:20
 msgid ""
 "with a simple, effective and replicable system. And accompany you step by "
 "step with human, real and professional assistance."
@@ -266,6 +277,6 @@ msgstr ""
 msgid "Without dot (e.g. \"my-class\")"
 msgstr "Senza punto (ad esempio \"my-class\")"
 
-#: admin/admin-ui.php:67
+#: admin/admin-ui.php:68
 msgid "Your CSS Classes"
 msgstr "Le tue classi CSS"

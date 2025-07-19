@@ -166,6 +166,12 @@ class StudioImmens_CSS_Classes {
 
     public function sicc_studioimmens_register_css_block() {
         wp_enqueue_script( 'studioimmens-css-block', SI_CSS_CLASS_URL . 'assets/studioimmens-css-block.js', array( 'wp-blocks','wp-element','wp-block-editor','wp-components','wp-i18n','wp-hooks' ), SI_CSS_CLASS_VERSION, true );
+        wp_localize_script('studioimmens-css-block', 'siCssDataBlock', [
+            'labels' => [
+                'title' => esc_html__('Custom CSS', 'studio-immens-css-classes'),
+                'desc' => esc_html__('Enter CSS to apply to this post:', 'studio-immens-css-classes'),
+            ]
+        ]);
     }
 
     public function sicc_ajax_save_class() {

@@ -98,20 +98,20 @@ console.log(
             createElement(
               PanelBody,
               {
-                title: siCssData.labels.title || __('CSS Classes', 'studio-immens'),
+                title: siCssData.labels.title || 'CSS Classes',
                 initialOpen: false,
                 className: 'studioimmens-css-control',
               },
               // Campo di ricerca
               createElement(TextControl, {
-                label: siCssData.labels.search || __('Search Classes', 'studio-immens'),
+                label: siCssData.labels.search || 'Search Classes',
                 value: searchTerm,
                 onChange: setSearchTerm,
-                placeholder: siCssData.labels.ttos || __('Type to search...', 'studio-immens'),
+                placeholder: siCssData.labels.ttos || 'Type to search...',
               }),
               // Toggle anteprima
               createElement(ToggleControl, {
-                label: siCssData.labels.livep || __('Live Preview', 'studio-immens'),
+                label: siCssData.labels.livep || 'Live Preview',
                 checked: showPreview,
                 onChange: () => {
                   setShowPreview(!showPreview);
@@ -152,7 +152,7 @@ console.log(
                   : createElement(
                       'p',
                       {},
-                      siCssData.labels.nofound || __('No classes found', 'studio-immens')
+                      siCssData.labels.nofound || 'No classes found'
                     )
               )
             )
