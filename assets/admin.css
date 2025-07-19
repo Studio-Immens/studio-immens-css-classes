@@ -83,7 +83,8 @@
     position: fixed;
     top: 50px;
     right: 50px;
-    min-width: 250px;
+    max-width: 300px;
+    width: 30%;
     border-radius: 10px;
 }
 
@@ -124,7 +125,16 @@
     transition: all 0.3s;
     min-width: 300px;
     margin: 5px;
+    background-color: #e4f1f9;
+    border-radius: 10px;
 }
+
+.si-class-card p {
+    font-size: 13px;
+    transition: all 0.3s;
+    margin: 0 5px;
+}
+
 
 .si-class-card:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -138,6 +148,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 10px 10px 0 0;
 }
 
 .si-class-name {
@@ -181,6 +192,4 @@
     background: #0d8aee;
     transform: translateY(-2px);
 }
-
-
 

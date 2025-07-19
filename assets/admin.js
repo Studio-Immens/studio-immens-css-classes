@@ -64,9 +64,9 @@ jQuery(document).ready(function($) {
                                 </div>
                             </div>
                             <pre class="si-class-code">${cls.css}</pre>
-                             :hover
+                             <p>:hover</p>
                             <pre class="si-hover-code">${cls.hover}</pre>
-                             :focus
+                             <p>:focus</p>
                             <pre class="si-focus-code">${cls.focus}</pre>
                         </div>
                     `);

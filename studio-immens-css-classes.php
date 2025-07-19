@@ -41,9 +41,6 @@ class StudioImmens_CSS_Classes {
         // Editor
         add_action('enqueue_block_editor_assets', [$this, 'sicc_studioimmens_register_css_block'] );
         add_action('enqueue_block_editor_assets', [$this, 'sicc_editor_assets']);
-        
-        // Traduzioni
-        // load_plugin_textdomain('studio-immens-css-classes', false, basename(dirname(__FILE__)) . '/languages');
 
         add_action('wp_ajax_nopriv_sicc_get_css_classes', function() {
             wp_send_json_error('Not logged in', 401);
