@@ -8,68 +8,68 @@ Stable tag:         1.0.0
 License:            GPLv2 or later  
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html  
 
-Crea il tuo set di classi CSS personalizzate, subito pronte all’uso con un click, per migliorare il design dei tuoi blocchi Gutenberg.
+Create your own set of custom CSS classes, ready to use with one click, to enhance the design of your Gutenberg blocks.
 
-== Descrizione ==
+== Description ==
 
-**Studio Immens CSS Classes** è un plugin pensato per sviluppatori, agenzie e freelance che vogliono velocizzare la progettazione visiva dei siti WordPress, migliorando la resa grafica con classi CSS già pronte, studiate per essere usate con:
+**Studio Immens CSS Classes** is a plugin designed for developers, agencies, and freelancers who want to speed up the visual design of WordPress sites by improving their graphics with ready-made CSS classes, designed for use with:
 
-- Gutenberg (editor a blocchi)
-- Temi moderni come Blocksy, GeneratePress, Astra
-- Page builder compatibili (es. Kadence, Spectra, ecc.)
-- Layout responsive e componenti visivi
+- Gutenberg (block editor)
+- Modern themes like Blocksy, GeneratePress, Astra
+- Compatible page builders (e.g., Kadence, Spectra, etc.)
+- Responsive layouts and visual components
 
-### Cosa include il plugin:
+### What the plugin includes:
 
-- Costruisci le tue classi css molto facilmente
-- Aggiungi o rimuovi le classi dai blocchi con un click
-- Zero impatto sulle performance (file CSS leggerissimo e pulito)
+- Easily build your own CSS classes
+- Add or remove classes from blocks with one click
+- Zero performance impact (very light and clean CSS file)
 
-Perfetto per chi usa un approccio modulare alla costruzione dei layout e vuole **evitare di scrivere ogni volta regole personalizzate** nel CSS del tema o del blocco.
+Perfect for those who use a modular approach to layout construction and want to **avoid writing custom rules** in the theme or block CSS every time.
 
-== Come funziona ==
+== How it works ==
 
-1. Installa e attiva il plugin.
-2. Vai nella sezione CSS Classes e crea le tue classi con le proprietà che desideri.
-3. Vai all’editor delle pagine (Gutenberg).
-4. Nella sezione “CSS Classes” di ogni blocco, puoi selezionare le classi personalizzate del plugin.
+1. Install and activate the plugin.
+2. Go to the CSS Classes section and create your own classes with the properties you want.
+3. Go to the page editor (Gutenberg).
+4. In the "CSS Classes" section of each block, you can select the plugin's custom classes.
 
-Puoi combinare le classi per ottenere risultati complessi in modo semplice.
+You can easily combine classes to achieve complex results.
 
-== Installazione ==
+== Installation ==
 
-1. Scarica il plugin da GitHub o dal repository.
-2. Carica la cartella `studioimmens-css-classes` nella directory `/wp-content/plugins/`.
-3. Attiva il plugin dalla sezione “Plugin” di WordPress.
-4. Vai nella sezione CSS Classes e crea le tue classi con le proprietà che desideri.
-5. Inizia a usare le classi CSS avanzate nei tuoi blocchi Gutenberg.
+1. Download the plugin from GitHub or the repository.
+2. Upload the `studioimmens-css-classes` folder to the `/wp-content/plugins/` directory.
+3. Activate the plugin from the WordPress "Plugins" section.
+4. Go to the CSS Classes section and create your own classes with the properties you want.
+5. Start using advanced CSS classes in your Gutenberg blocks.
 
 == FAQ ==
 
-= È compatibile con tutti i temi? =  
-Sì, ma è stato pensato per integrarsi perfettamente con Blocksy, GeneratePress, Astra e altri temi con struttura moderna e semantica pulita.
+= Is it compatible with all themes? =
+Yes, but it's designed to integrate seamlessly with Blocksy, GeneratePress, Astra, and other themes with a modern structure and clean semantics.
 
-= Posso aggiungere le mie classi personalizzate? =  
-Certo. Vai nella sezione CSS Classe e crea tutte le classi con le proprietà che desideri.
+= Can I add my own custom classes? =
+Of course. Go to the CSS Class section and create as many classes with the properties you want.
 
-= Il plugin rallenta il sito? =  
-No. Il file CSS è minimale, caricato in modo ottimizzato e non include JavaScript.
+= Will the plugin slow down my site? =
+No. The CSS file is minimal, loads optimally, and doesn't include JavaScript.
 
 == Screenshots ==
 
-1. Sezione admin per creare e modificare classi CSS personalizzate.
-2. Interfaccia per inserire classi CSS personalizzate nei blocchi.
+1. Admin section for creating and editing custom CSS classes.
+2. Interface for inserting custom CSS classes into blocks.
 
 == Changelog ==
 
 = 1.0.0 =
-* Versione iniziale stabile
-* Aggiunto set base di classi CSS utility
-* Compatibilità con Gutenberg e temi Blocksy, GeneratePress, Astra
+* Initial stable release
+* Added core set of CSS utility classes
+* Compatibility with Gutenberg and Blocksy, GeneratePress, and Astra themes
 
-== Crediti ==
+== Credits ==
 
-Sviluppato da [Studio Immens](https://www.studioimmens.com) – Soluzioni digitali modulari per professionisti e aziende.
+Developed by [Studio Immens](https://www.studioimmens.com) – Modular digital solutions for professionals and businesses.
 
 == License ==
 
