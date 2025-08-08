@@ -12,12 +12,16 @@ Create your own set of custom CSS classes, ready to use with one click, to enhan
 
 == Description ==
 
-**Studio Immens CSS Classes** is a plugin designed for developers, agencies, and freelancers who want to speed up the visual design of WordPress sites by improving their graphics with ready-made CSS classes, designed for use with:
+**Studio Immens CSS Classes** is a developer-focused plugin built for speed, flexibility, and real results. Designed for agencies, freelancers, and pros who want to supercharge Gutenberg-based WordPress sites, this plugin empowers you to ditch repetitive CSS and deploy custom utility classes with zero friction.
 
-- Gutenberg (block editor)
-- Modern themes like Blocksy, GeneratePress, Astra
-- Compatible page builders (e.g., Kadence, Spectra, etc.)
-- Responsive layouts and visual components
+The latest version adds seamless integration with a curated set of popular CSS frameworks—Bootstrap, Materialize, UIkit, PureCSS, Semantic UI, Spectre.css, and Bulma. Here's what you can now do in one click:
+
+• Select your preferred CSS framework right from the editor.
+• Automatically access the full list of utility classes from that framework.
+• Preview how classes look in real time, directly inside Gutenberg blocks.
+• Apply classes instantly—no manual coding, no guesswork.
+
+All of this while maintaining razor‑sharp performance: a tiny, clean stylesheet and no unnecessary JavaScript overhead, keeping your site lean and lightning fast.
 
 ### What the plugin includes:
 

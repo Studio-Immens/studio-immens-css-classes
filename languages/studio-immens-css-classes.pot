@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Studio Immens CSS Classes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-19 08:56+0000\n"
+"POT-Creation-Date: 2025-08-08 15:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -52,6 +52,14 @@ msgid ""
 "marketing, tailored to your sector."
 msgstr ""
 
+#: studio-immens-css-classes.php:310
+msgid "Bootstrap Classes"
+msgstr ""
+
+#: studio-immens-css-classes.php:376
+msgid "Bulma Classes"
+msgstr ""
+
 #: admin/admin-ui.php:30
 msgid "Class :focus"
 msgstr ""
@@ -72,16 +80,16 @@ msgstr ""
 msgid "classes"
 msgstr ""
 
-#: studio-immens-css-classes.php:96 studio-immens-css-classes.php:97
-#: studio-immens-css-classes.php:156
+#: studio-immens-css-classes.php:161 studio-immens-css-classes.php:162
+#: studio-immens-css-classes.php:295
 msgid "CSS Classes"
 msgstr ""
 
-#: studio-immens-css-classes.php:171
+#: studio-immens-css-classes.php:465
 msgid "Custom CSS"
 msgstr ""
 
-#: studio-immens-css-classes.php:133
+#: studio-immens-css-classes.php:213
 msgid "Delete"
 msgstr ""
 
@@ -99,15 +107,43 @@ msgstr ""
 msgid "earn more, automate everything possible "
 msgstr ""
 
-#: studio-immens-css-classes.php:135
+#: studio-immens-css-classes.php:215
 msgid "Edit"
+msgstr ""
+
+#: admin/settings.php:18
+msgid "enable Bootstrap CSS"
+msgstr ""
+
+#: admin/settings.php:39
+msgid "enable Bulma CSS"
 msgstr ""
 
 #: admin/admin-ui.php:48
 msgid "Enable Live Preview"
 msgstr ""
 
-#: studio-immens-css-classes.php:172
+#: admin/settings.php:25
+msgid "enable Materialize CSS"
+msgstr ""
+
+#: admin/settings.php:32
+msgid "enable Pure CSS"
+msgstr ""
+
+#: admin/settings.php:60
+msgid "enable Semantic CSS"
+msgstr ""
+
+#: admin/settings.php:53
+msgid "enable Spectre CSS"
+msgstr ""
+
+#: admin/settings.php:46
+msgid "enable Uikit CSS"
+msgstr ""
+
+#: studio-immens-css-classes.php:466
 msgid "Enter CSS to apply to this post:"
 msgstr ""
 
@@ -133,11 +169,15 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#. Author of the plugin
-msgid "innovazioneweb"
+#: admin/settings.php:69
+msgid "Instructions"
 msgstr ""
 
-#: studio-immens-css-classes.php:161 admin/admin-ui.php:44
+#: studio-immens-css-classes.php:300 studio-immens-css-classes.php:315
+#: studio-immens-css-classes.php:337 studio-immens-css-classes.php:359
+#: studio-immens-css-classes.php:381 studio-immens-css-classes.php:403
+#: studio-immens-css-classes.php:425 studio-immens-css-classes.php:447
+#: admin/admin-ui.php:44
 msgid "Live Preview"
 msgstr ""
 
@@ -147,7 +187,14 @@ msgid ""
 "industry."
 msgstr ""
 
-#: studio-immens-css-classes.php:162
+#: studio-immens-css-classes.php:332
+msgid "Materialize Classes"
+msgstr ""
+
+#: studio-immens-css-classes.php:301 studio-immens-css-classes.php:316
+#: studio-immens-css-classes.php:338 studio-immens-css-classes.php:360
+#: studio-immens-css-classes.php:382 studio-immens-css-classes.php:404
+#: studio-immens-css-classes.php:426 studio-immens-css-classes.php:448
 msgid "No classes found"
 msgstr ""
 
@@ -155,23 +202,42 @@ msgstr ""
 msgid "Our goal is only one"
 msgstr ""
 
+#: admin/settings.php:14
+msgid "Plugin Configuration"
+msgstr ""
+
 #: admin/studioimmens.php:27
 msgid "Plugin developed by "
 msgstr ""
 
-#: studio-immens-css-classes.php:134 studio-immens-css-classes.php:158
+#: studio-immens-css-classes.php:214 studio-immens-css-classes.php:297
+#: studio-immens-css-classes.php:312 studio-immens-css-classes.php:334
+#: studio-immens-css-classes.php:356 studio-immens-css-classes.php:378
+#: studio-immens-css-classes.php:400 studio-immens-css-classes.php:422
+#: studio-immens-css-classes.php:444
 msgid "Preview"
+msgstr ""
+
+#: studio-immens-css-classes.php:354
+msgid "Pure Classes"
 msgstr ""
 
 #: admin/admin-ui.php:35
 msgid "Save Class"
 msgstr ""
 
+#: admin/settings.php:79
+msgid "Save Settings"
+msgstr ""
+
 #: admin/studioimmens.php:20
 msgid "scale your digital business "
 msgstr ""
 
-#: studio-immens-css-classes.php:159
+#: studio-immens-css-classes.php:298 studio-immens-css-classes.php:313
+#: studio-immens-css-classes.php:335 studio-immens-css-classes.php:357
+#: studio-immens-css-classes.php:379 studio-immens-css-classes.php:401
+#: studio-immens-css-classes.php:423 studio-immens-css-classes.php:445
 msgid "Search Classes"
 msgstr ""
 
@@ -179,12 +245,32 @@ msgstr ""
 msgid "Search classes..."
 msgstr ""
 
-#: studio-immens-css-classes.php:157
+#: studio-immens-css-classes.php:296 studio-immens-css-classes.php:311
+#: studio-immens-css-classes.php:333 studio-immens-css-classes.php:355
+#: studio-immens-css-classes.php:377 studio-immens-css-classes.php:399
+#: studio-immens-css-classes.php:421 studio-immens-css-classes.php:443
 msgid "Select Class"
 msgstr ""
 
-#: studio-immens-css-classes.php:106 studio-immens-css-classes.php:107
+#: studio-immens-css-classes.php:442
+msgid "Semantic Classes"
+msgstr ""
+
+#: studio-immens-css-classes.php:179 studio-immens-css-classes.php:180
+msgid "Settings"
+msgstr ""
+
+#: studio-immens-css-classes.php:420
+msgid "Spectre Classes"
+msgstr ""
+
+#. Author of the plugin
+#: studio-immens-css-classes.php:171 studio-immens-css-classes.php:172
 msgid "Studio Immens"
+msgstr ""
+
+#: admin/settings.php:3
+msgid "Studio Immens - Settings"
 msgstr ""
 
 #. Name of the plugin
@@ -193,7 +279,7 @@ msgid "Studio Immens CSS Classes"
 msgstr ""
 
 #. CSS Classes requires WordPress 5.0 or higher
-#: studio-immens-css-classes.php:87
+#: studio-immens-css-classes.php:152
 #, php-format
 msgid ""
 "Studio Immens CSS Classes requires WordPress 5.0 or higher. Your version is "
@@ -208,20 +294,41 @@ msgstr ""
 msgid "Studio Immens – Chi siamo"
 msgstr ""
 
+#: admin/settings.php:4
+msgid "Support & Docs"
+msgstr ""
+
 #: admin/studioimmens.php:15
 msgid "Technology + Method = Result"
+msgstr ""
+
+#: admin/settings.php:71
+msgid ""
+"This plugin allows you to manage and inject custom CSS classes globally and "
+"inside the editor. Use this settings page to configure behavior."
 msgstr ""
 
 #: admin/studioimmens.php:28
 msgid "to learn about all our tools and services."
 msgstr ""
 
+#: admin/settings.php:72
+msgid "Toggle features on/off using the checkboxes."
+msgstr ""
+
 #: admin/studioimmens.php:13
 msgid "turnkey digital systems"
 msgstr ""
 
-#: studio-immens-css-classes.php:160
+#: studio-immens-css-classes.php:299 studio-immens-css-classes.php:314
+#: studio-immens-css-classes.php:336 studio-immens-css-classes.php:358
+#: studio-immens-css-classes.php:380 studio-immens-css-classes.php:402
+#: studio-immens-css-classes.php:424 studio-immens-css-classes.php:446
 msgid "Type to search..."
+msgstr ""
+
+#: studio-immens-css-classes.php:398
+msgid "Uikit Classes"
 msgstr ""
 
 #: admin/admin-ui.php:3
@@ -244,6 +351,48 @@ msgstr ""
 
 #: admin/studioimmens.php:16
 msgid "We only use proprietary, modular and integrable tools: "
+msgstr ""
+
+#: admin/settings.php:20
+msgid ""
+"When enabled, Bootstrap CSS classes will be listed and selectable in the "
+"editor and inserted into the site’s front-end."
+msgstr ""
+
+#: admin/settings.php:41
+msgid ""
+"When enabled, Bulma CSS classes will be listed and selectable in the editor "
+"and inserted into the site’s front-end."
+msgstr ""
+
+#: admin/settings.php:27
+msgid ""
+"When enabled, Materialize CSS classes will be listed and selectable in the "
+"editor and inserted into the site’s front-end."
+msgstr ""
+
+#: admin/settings.php:34
+msgid ""
+"When enabled, Pure CSS classes will be listed and selectable in the editor "
+"and inserted into the site’s front-end."
+msgstr ""
+
+#: admin/settings.php:62
+msgid ""
+"When enabled, Semantic CSS classes will be listed and selectable in the "
+"editor and inserted into the site’s front-end."
+msgstr ""
+
+#: admin/settings.php:55
+msgid ""
+"When enabled, Spectre CSS classes will be listed and selectable in the "
+"editor and inserted into the site’s front-end."
+msgstr ""
+
+#: admin/settings.php:48
+msgid ""
+"When enabled, Uikit CSS classes will be listed and selectable in the editor "
+"and inserted into the site’s front-end."
 msgstr ""
 
 #: admin/studioimmens.php:7
