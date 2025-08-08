@@ -1,89 +1,87 @@
-
-
 # Studio Immens CSS Classes
 
-⚡️ Crea il tuo set di classi CSS personalizzate, subito pronte all’uso con un click, per migliorare il design dei tuoi blocchi Gutenberg.  
-Sviluppato da [Studio Immens](https://www.studioimmens.com) – Sistemi digitali modulari per imprenditori e professionisti.
+⚡️ Create your own set of custom CSS classes, ready to use with one click, to enhance the design of your Gutenberg blocks.
 
-![Screenshot](https://raw.githubusercontent.com/Immens95/studio-immens-css-classes/main/screenshot.png)
+Developed by [Studio Immens](https://www.studioimmens.com) – Modular digital systems for entrepreneurs and professionals.
 
----
-
-## 🚀 Introduzione
-
-**Studio Immens CSS Classes** è un plugin WordPress che aggiunge una sezione in cui poter costruire il proprio arsenale CSS, per averlo sempre pronto all'uso per ottimizzare e personalizzare rapidamente il layout delle tue pagine WordPress, con particolare attenzione a:
-
-- Editor Gutenberg
-- Temi come Blocksy, GeneratePress, Astra
-- Pagine in ottica mobile-first e design modulare
-
-Questo plugin ti permette di creare **classi personalizzate e aggiungerle direttamente nei blocchi** Gutenberg con un click, per ottenere layout migliori **senza dover ogni volta scrivere codice aggiuntivo**.
+[Screenshot](https://raw.githubusercontent.com/Immens95/studio-immens-css-classes/main/screenshot.png)
 
 ---
 
-## ✅ Funzionalità principali
+## 🚀 Introduction
 
-- **Compatibile** con Gutenberg, Blocksy, Astra, Kadence
-- CSS minimale, **zero JavaScript**
-- Prestazioni ultra-ottimizzate
+**Studio Immens CSS Classes** is a WordPress plugin that adds a section where you can build your own CSS arsenal, so you always have it ready to use to quickly optimize and customize the layout of your WordPress pages, with a focus on:
+
+- Gutenberg Editor
+- Themes like Blocksy, GeneratePress, Astra
+- Mobile-first pages and modular design
+
+This plugin allows you to create custom classes and add them directly to Gutenberg blocks with one click, for better layouts without having to write additional code each time.
 
 ---
 
-## 📦 Installazione
+## ✅ Key Features
 
-### 1. Manuale via GitHub
+- **Compatible** with Gutenberg, Blocksy, Astra, Kadence
+- Minimal CSS, **zero JavaScript**
+- Ultra-optimized performance
 
-1. Scarica o clona il repository:
-   ```bash
-   git clone https://github.com/Immens95/studio-immens-css-classes.git
-Copia la cartella studio-immens-css-classes nella directory /wp-content/plugins/
+---
 
-Attiva il plugin da Plugin > Plugin installati in WordPress
+## 📦 Installation
 
-2. Alternativa
-Puoi comprimere la cartella in .zip e caricarla via WordPress da
-Plugin > Aggiungi nuovo > Carica plugin
+### 1. Manual via GitHub
 
-🛠️ Come si usa
-Dopo aver attivato il plugin:
+1. Download or clone the repository:
+```bash
+git clone https://github.com/Immens95/studio-immens-css-classes.git
+Copy the studio-immens-css-classes folder to the /wp-content/plugins/ directory
 
-Apri una pagina con editor Gutenberg.
+Activate the plugin from Plugins > Installed Plugins in WordPress
 
-Seleziona un blocco e apri la scheda "CSS Classes".
+2. Alternative
+You can zip the folder and upload it via WordPress from
+Plugins > Add New > Upload Plugin
 
-Seleziona il nome di una o più classi CSS
+🛠️ How to use
+After activating the plugin:
+
+Open a page with the Gutenberg editor.
+
+Select a block and open the "CSS Classes" tab.
+
+Select the name of one or more CSS classes
 
 ❓ FAQ
-È compatibile con tutti i temi?
-Sì, ma è stato ottimizzato per integrarsi perfettamente con Blocksy e altri temi moderni.
+Is it compatible with all themes?
+Yes, but it has been optimized to integrate seamlessly with Blocksy and other modern themes.
 
-Posso aggiungere le mie classi?
-Sì. Vai nella sezione CSS Classes e crea le tue classi con le proprietà che desideri.
+Can I add my own classes?
+Yes. Go to the CSS Classes section and create your own classes with the properties you want.
 
-Rallenta il sito?
-No. È un plugin leggerissimo, senza dipendenze JavaScript o PHP complesse.
+Will it slow down my site?
+No. It's a very lightweight plugin, with no complex JavaScript or PHP dependencies.
 
-📈 Perché usarlo
-Risparmia tempo nello sviluppo visivo
+📈 Why use it?
+Save time on visual development
 
-Scrivi meno CSS personalizzato
+Write less custom CSS
 
-Migliora la coerenza del layout
+Improve layout consistency
 
-Ideale per chi lavora con template modulari o in white-label
+Ideal for those working with modular or white-label templates
 
-🔗 Risorse
-Sito ufficiale Studio Immens
+🔗 Resources
+Studio Immens Official Website
 
-Plugin WordPress di Studio Immens
+Studio Immens WordPress Plugin
 
-🧑‍💻 Autore
-Sviluppato da Studio Immens
-Soluzioni digitali modulari per professionisti, imprese e web agency.
+🧑‍💻 Author
+Developed by Studio Immens
+Modular digital solutions for professionals, businesses, and web agencies.
 
-👉 Visita studioimmens.com per scoprire plugin, app, CRM e sistemi pronti a vendere.
+👉 Visit studioimmens.com to discover plugins, apps, CRMs, and systems ready to sell.
 
-📄 Licenza
+📄 License
 GNU General Public License v2.0
-Per maggiori informazioni: https://www.gnu.org/licenses/gpl-2.0.html
-
+For more information: https://www.gnu.org/licenses/gpl-2.0.html
