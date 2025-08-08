@@ -40,13 +40,13 @@
                         </label>
                         <small><?php esc_html_e('When enabled, Bulma CSS classes will be listed and selectable in the editor and inserted into the site’s front-end.', 'studio-immens-css-classes'); ?></small>
     <!-- Bulma --></div>
-    <!-- UIKIT --><div class="si-form-group">
+    <!-- Uikit --><div class="si-form-group">
                         <label for="si_enable_uikit">
                             <input type="checkbox" name="sicc_css_settings[enable_uikit]" id="si_enable_uikit" value="1" <?php checked(1, get_option('sicc_css_settings')['enable_uikit'] ?? 0); ?>>
-                            <?php esc_html_e('enable UIKIT CSS', 'studio-immens-css-classes'); ?>
+                            <?php esc_html_e('enable Uikit CSS', 'studio-immens-css-classes'); ?>
                         </label>
-                        <small><?php esc_html_e('When enabled, UIKIT CSS classes will be listed and selectable in the editor and inserted into the site’s front-end.', 'studio-immens-css-classes'); ?></small>
-    <!-- UIKIT --></div>
+                        <small><?php esc_html_e('When enabled, Uikit CSS classes will be listed and selectable in the editor and inserted into the site’s front-end.', 'studio-immens-css-classes'); ?></small>
+    <!-- Uikit --></div>
     <!-- Spectre --><div class="si-form-group">
                         <label for="si_enable_spectre">
                             <input type="checkbox" name="sicc_css_settings[enable_spectre]" id="si_enable_spectre" value="1" <?php checked(1, get_option('sicc_css_settings')['enable_spectre'] ?? 0); ?>>
