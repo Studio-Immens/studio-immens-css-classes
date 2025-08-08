@@ -21,6 +21,11 @@
     margin-bottom: 0;
 }
 
+.studioimmens-css-control.is-opened {
+/*    background-color: red;*/
+    
+}
+
 .si-classes-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -29,6 +34,10 @@
     overflow-y: auto;
     margin-top: 16px;
     padding: 5px;
+}
+
+.si-classes-container .div {
+    margin: 0;
 }
 
 .si-class-card {

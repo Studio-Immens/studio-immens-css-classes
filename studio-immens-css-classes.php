@@ -2,7 +2,7 @@
 /*
 Plugin Name: Studio Immens CSS Classes
 Description: Add custom CSS classes to Gutenberg blocks with live preview.
-Version: 1.0.0
+Version: 1.1.0
 Requires at least:  5.8  
 Tested up to:       6.8  
 Requires PHP:       7.4
@@ -16,7 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // === FILE PRINCIPALE: studio-immens-css-classes.php ===
 define('SI_CSS_CLASS_PATH', plugin_dir_path(__FILE__));
 define('SI_CSS_CLASS_URL', plugin_dir_url(__FILE__));
-define('SI_CSS_CLASS_VERSION', '1.0.0');
+define('SI_CSS_CLASS_VERSION', '1.1.0');
+
+define('SI_CSS_CLASS_BS_VERSION', '5.3.3');
 
 class StudioImmens_CSS_Classes {
     public function __construct() {
@@ -61,6 +63,60 @@ class StudioImmens_CSS_Classes {
         add_action('wp_footer', [$this, 'sicc_css_constructor']);
         add_action('admin_footer', [$this, 'sicc_css_constructor']);
         add_action('enqueue_block_editor_assets', [$this, 'sicc_css_constructor']);
+
+
+        if (isset($cssSettings['enable_bootstrap']) && $cssSettings['enable_bootstrap']) {
+            if ( version_compare( get_option('sicc_css_bootstrap_classes_vers'), SI_CSS_CLASS_BS_VERSION, '>') ) {
+                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/bootstrap@'.SI_CSS_CLASS_BS_VERSION.'/dist/css/bootstrap.css');
+                update_option('sicc_css_bootstrap_classes_vers', SI_CSS_CLASS_BS_VERSION);
+            }
+        }
+        if (isset($cssSettings['enable_materialize']) && $cssSettings['enable_materialize']) {
+            if ( version_compare( get_option('sicc_css_bootstrap_classes_vers'), '1.0.0', '>') ) {
+                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/materialize-css@1.0.0/dist/css/materialize.min.css');
+                update_option('sicc_css_bootstrap_classes_vers', '1.0.0');
+            }
+        }
+        if (isset($cssSettings['enable_pure']) && $cssSettings['enable_pure']) {
+            if ( version_compare( get_option('sicc_css_bootstrap_classes_vers'), '3.0.0', '>') ) {
+                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css');
+                update_option('sicc_css_bootstrap_classes_vers', '3.0.0');
+            }
+        }
+        if (isset($cssSettings['enable_bulma']) && $cssSettings['enable_bulma']) {
+            if ( version_compare( get_option('sicc_css_bootstrap_classes_vers'), '1.0.0', '>') ) {
+                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css');
+                update_option('sicc_css_bootstrap_classes_vers', '1.0.0');
+            }
+        }
+        if (isset($cssSettings['enable_uikit']) && $cssSettings['enable_uikit']) {
+            if ( version_compare( get_option('sicc_css_bootstrap_classes_vers'), '3.20.4', '>') ) {
+                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/uikit@3.20.4/dist/css/uikit.min.css');
+                update_option('sicc_css_bootstrap_classes_vers', '3.20.4');
+            }
+        }
+        if (isset($cssSettings['enable_spectre']) && $cssSettings['enable_spectre']) {
+            if ( version_compare( get_option('sicc_css_bootstrap_classes_vers'), '0.5.9', '>') ) {
+                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/spectre.css@0.5.9/dist/spectre.min.css');
+                update_option('sicc_css_bootstrap_classes_vers', '0.5.9');
+            }
+        }
+        if (isset($cssSettings['enable_bootstrap']) && $cssSettings['enable_bootstrap']) {
+            if ( version_compare( get_option('sicc_css_bootstrap_classes_vers'), '2.5.0', '>') ) {
+                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/semantic-ui-css@2.5.0/semantic.min.css');
+                update_option('sicc_css_bootstrap_classes_vers', '2.5.0');
+            }
+        }
+
+        add_action('admin_init', [$this, 'sicc_css_register_settings']);
+    }
+
+    public function sicc_css_register_settings() {
+        register_setting('si_css_settings_group', 'sicc_css_settings');
+    }
+
+    public function sicc_css_all_settings() {
+        return get_option('si_css_settings', []);
     }
 
     public function sicc_css_constructor() {
@@ -79,6 +135,12 @@ class StudioImmens_CSS_Classes {
         }
         $output_file = SI_CSS_CLASS_UPLOAD_PATH . '/si-css.css';
         file_put_contents($output_file, $css_output);
+    }
+
+    public function sicc_css_framework_constructor($url) {
+        $css = file_get_contents( $url );
+
+        update_option( 'sicc_css_bootstrap_classes', SICC_extract_css_selectors($css) );
     }
 
     public function sicc_compatibility_notice() {
@@ -109,6 +171,15 @@ class StudioImmens_CSS_Classes {
             'studioimmens-page',
             [$this, 'sicc_studioimmens_page']
         );
+         add_submenu_page(
+            'studioimmens-css',
+            esc_html__('Settings', 'studio-immens-css-classes'),
+            esc_html__('Settings', 'studio-immens-css-classes'),
+            'manage_options',
+            'studioimmens-css-settings',
+            [$this, 'sicc_studioimmens_settings']
+        );
+
     }
 
     // Pagina admin
@@ -120,10 +191,16 @@ class StudioImmens_CSS_Classes {
         include SI_CSS_CLASS_PATH . 'admin/studioimmens.php';
     }
 
+    public function sicc_studioimmens_settings() {
+        include SI_CSS_CLASS_PATH . 'admin/settings.php';
+    }
+
     // Script admin
     public function sicc_admin_scripts($hook) {
         // var_dump($hook);
         if ( $hook === 'toplevel_page_studioimmens-css'|| $hook === 'classi-css_page_studioimmens-page') {
+            $cssSettings = $this::sicc_css_all_settings();
+
             wp_enqueue_style('sicc-css-admin', SI_CSS_CLASS_URL . 'assets/admin.css', array(), SI_CSS_CLASS_VERSION );
             wp_enqueue_script('sicc-css-admin', SI_CSS_CLASS_URL . 'assets/admin.js', ['jquery'], SI_CSS_CLASS_VERSION, true);
 
@@ -136,6 +213,63 @@ class StudioImmens_CSS_Classes {
             ]);
 
             wp_enqueue_style('sicc-css-admin-edit', SI_CSS_CLASS_UPLOAD_URL . 'si-css.css', array(), SI_CSS_CLASS_VERSION );
+
+            if (isset($cssSettings['enable_bootstrap']) && $cssSettings['enable_bootstrap']) {
+                    wp_enqueue_style(
+                    'sicc-bootstrap-css',
+                    'https://cdn.jsdelivr.net/npm/bootstrap@'.SI_CSS_CLASS_BS_VERSION.'/dist/css/bootstrap.min.css',
+                    array(),
+                    SI_CSS_CLASS_BS_VERSION
+                );
+            }
+            if (isset($cssSettings['enable_materialize']) && $cssSettings['enable_materialize']) {
+                    wp_enqueue_style(
+                    'sicc-materialize-css',
+                    'https://cdn.jsdelivr.net/npm/materialize-css@1.0.0/dist/css/materialize.min.css',
+                    array(),
+                    '1.0.0'
+                );
+            }
+            if (isset($cssSettings['enable_pure']) && $cssSettings['enable_pure']) {
+                    wp_enqueue_style(
+                    'sicc-pure-css',
+                    'https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css',
+                    array(),
+                    '3.0.0'
+                );
+            }
+            if (isset($cssSettings['enable_bulma']) && $cssSettings['enable_bulma']) {
+                    wp_enqueue_style(
+                    'sicc-bulma-css',
+                    'https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css',
+                    array(),
+                    '1.0.0'
+                );
+            }
+            if (isset($cssSettings['enable_uikit']) && $cssSettings['enable_uikit']) {
+                    wp_enqueue_style(
+                    'sicc-uikit-css',
+                    'https://cdn.jsdelivr.net/npm/uikit@3.20.4/dist/css/uikit.min.css',
+                    array(),
+                    '3.20.4'
+                );
+            }
+            if (isset($cssSettings['enable_spectre']) && $cssSettings['enable_spectre']) {
+                    wp_enqueue_style(
+                    'sicc-spectre-css',
+                    'https://cdn.jsdelivr.net/npm/spectre.css@0.5.9/dist/spectre.min.css',
+                    array(),
+                    '0.5.9'
+                );
+            }
+            if (isset($cssSettings['enable_semantic']) && $cssSettings['enable_semantic']) {
+                    wp_enqueue_style(
+                    'sicc-semantic-css',
+                    'https://cdn.jsdelivr.net/npm/semantic-ui-css@2.5.0/semantic.min.css',
+                    array(),
+                    '2.5.0'
+                );
+            }
         }
     }
 
@@ -162,6 +296,79 @@ class StudioImmens_CSS_Classes {
                 'nofound' => esc_html__('No classes found', 'studio-immens-css-classes'),
             ]
         ]);
+
+        wp_enqueue_script('sicc-css-bs-editor', SI_CSS_CLASS_URL . 'assets/bs-editor.js', ['wp-blocks','wp-element','wp-block-editor','wp-components','wp-i18n','wp-hooks'], SI_CSS_CLASS_VERSION, true );
+
+        wp_localize_script('sicc-css-bs-editor', 'siCssDataBs', [
+            'classes' => get_option('sicc_css_bootstrap_classes', []),
+            'labels' => [
+                'title' => esc_html__('Bootstrap Classes', 'studio-immens-css-classes'),
+                'select' => esc_html__('Select Class', 'studio-immens-css-classes'),
+                'preview' => esc_html__('Preview', 'studio-immens-css-classes'),
+                'search' => esc_html__('Search Classes', 'studio-immens-css-classes'),
+                'ttos' => esc_html__('Type to search...', 'studio-immens-css-classes'),
+                'livep' => esc_html__('Live Preview', 'studio-immens-css-classes'),
+                'nofound' => esc_html__('No classes found', 'studio-immens-css-classes'),
+            ]
+        ]);
+
+        if (isset($cssSettings['enable_bootstrap']) && $cssSettings['enable_bootstrap']) {
+                wp_enqueue_style(
+                'sicc-bootstrap-css',
+                'https://cdn.jsdelivr.net/npm/bootstrap@'.SI_CSS_CLASS_BS_VERSION.'/dist/css/bootstrap.min.css',
+                array(),
+                SI_CSS_CLASS_BS_VERSION
+            );
+        }
+        if (isset($cssSettings['enable_materialize']) && $cssSettings['enable_materialize']) {
+                wp_enqueue_style(
+                'sicc-materialize-css',
+                'https://cdn.jsdelivr.net/npm/materialize-css@1.0.0/dist/css/materialize.min.css',
+                array(),
+                '1.0.0'
+            );
+        }
+        if (isset($cssSettings['enable_pure']) && $cssSettings['enable_pure']) {
+                wp_enqueue_style(
+                'sicc-pure-css',
+                'https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css',
+                array(),
+                '3.0.0'
+            );
+        }
+        if (isset($cssSettings['enable_bulma']) && $cssSettings['enable_bulma']) {
+                wp_enqueue_style(
+                'sicc-bulma-css',
+                'https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css',
+                array(),
+                '1.0.0'
+            );
+        }
+        if (isset($cssSettings['enable_uikit']) && $cssSettings['enable_uikit']) {
+                wp_enqueue_style(
+                'sicc-uikit-css',
+                'https://cdn.jsdelivr.net/npm/uikit@3.20.4/dist/css/uikit.min.css',
+                array(),
+                '3.20.4'
+            );
+        }
+        if (isset($cssSettings['enable_spectre']) && $cssSettings['enable_spectre']) {
+                wp_enqueue_style(
+                'sicc-spectre-css',
+                'https://cdn.jsdelivr.net/npm/spectre.css@0.5.9/dist/spectre.min.css',
+                array(),
+                '0.5.9'
+            );
+        }
+        if (isset($cssSettings['enable_semantic']) && $cssSettings['enable_semantic']) {
+                wp_enqueue_style(
+                'sicc-semantic-css',
+                'https://cdn.jsdelivr.net/npm/semantic-ui-css@2.5.0/semantic.min.css',
+                array(),
+                '2.5.0'
+            );
+        }
+
     }
 
     public function sicc_studioimmens_register_css_block() {
@@ -278,3 +485,38 @@ function SICC_check( $var ){
     }
 }
 
+// Funzione per estrarre classi e ID dal CSS
+function SICC_extract_css_selectors($css) {
+    $selectors = array();
+    
+    // Rimuovi commenti
+    $css = preg_replace('/\/\*.*?\*\//s', '', $css);
+
+    // 2. Rimuove tutti i blocchi @... { ... } inclusi @keyframes, @media, ecc.
+    $css = preg_replace('/@[\w\-]+[^{]*\{(?:[^{}]++|(?R))*\}/s', '', $css);
+    
+    // Trova classi
+    preg_match_all('/\.([a-zA-Z0-9_-]+)(?=[^{}]*\{)/', $css, $class_matches);
+    if (!empty($class_matches[1])) {
+        foreach ($class_matches[1] as $class) {
+            $selectors[] = $class;
+        }
+    }
+    
+    // Trova ID
+    // preg_match_all('/#([a-zA-Z0-9_-]+)(?=[^{}]*\{)/', $css, $id_matches);
+    // if (!empty($id_matches[1])) {
+    //     foreach ($id_matches[1] as $id) {
+    //         $selectors[] = $id;
+    //     }
+    // }
+    
+    // Rimuovi duplicati e valori vuoti
+    $selectors = array_unique($selectors);
+    $selectors = array_filter($selectors);
+    
+    // Ordina alfabeticamente
+    sort($selectors);
+    
+    return $selectors;
+}
