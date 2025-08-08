@@ -5,14 +5,13 @@
     </h1>
 
     <form method="post" action="options.php">
-        <?php settings_fields('si_css_settings_group'); ?>
+        <?php settings_fields('sicc_css_settings_group'); ?>
         <?php do_settings_sections('studio-immens-css-settings'); ?>
 
         <div class="si-form-container">
             <div class="si-form-column">
                 <div class="si-form-box">
                     <h2><?php esc_html_e('Plugin Configuration', 'studio-immens-css-classes'); ?></h2>
-
     <!-- Bootstrap --><div class="si-form-group">
                         <label for="si_enable_bootstrap">
                             <input type="checkbox" name="sicc_css_settings[enable_bootstrap]" id="si_enable_bootstrap" value="1" <?php checked(1, get_option('sicc_css_settings')['enable_bootstrap'] ?? 0); ?>>
@@ -20,7 +19,6 @@
                         </label>
                         <small><?php esc_html_e('When enabled, Bootstrap CSS classes will be listed and selectable in the editor and inserted into the site’s front-end.', 'studio-immens-css-classes'); ?></small>
     <!-- Bootstrap --></div> 
-
     <!-- Materialize --><div class="si-form-group">
                         <label for="si_enable_materialize">
                             <input type="checkbox" name="sicc_css_settings[enable_materialize]" id="si_enable_materialize" value="1" <?php checked(1, get_option('sicc_css_settings')['enable_materialize'] ?? 0); ?>>
@@ -63,7 +61,6 @@
                         </label>
                         <small><?php esc_html_e('When enabled, Semantic CSS classes will be listed and selectable in the editor and inserted into the site’s front-end.', 'studio-immens-css-classes'); ?></small>
     <!-- Semantic --></div>
-
                 </div>
             </div>
 
