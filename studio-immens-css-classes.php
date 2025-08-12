@@ -2,7 +2,7 @@
 /*
 Plugin Name: Studio Immens CSS Classes
 Description: Add custom CSS classes to Gutenberg blocks with live preview.
-Version: 1.1.0
+Version: 1.1.1
 Requires at least:  5.8  
 Tested up to:       6.8  
 Requires PHP:       7.4
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // === FILE PRINCIPALE: studio-immens-css-classes.php ===
 define('SI_CSS_CLASS_PATH', plugin_dir_path(__FILE__));
 define('SI_CSS_CLASS_URL', plugin_dir_url(__FILE__));
-define('SI_CSS_CLASS_VERSION', '1.1.0');
+define('SI_CSS_CLASS_VERSION', '1.1.1');
 
 
 class StudioImmens_CSS_Classes {
@@ -72,43 +72,43 @@ class StudioImmens_CSS_Classes {
 
         if (isset($cssSettings['enable_bootstrap']) && $cssSettings['enable_bootstrap'] == '1') {
             if ( version_compare( get_option('sicc_css_bootstrap_classes_vers'), '5.3.3', '!=') ) {
-                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.css', 'sicc_css_bootstrap_classes');
+                $this::sicc_css_framework_constructor( SI_CSS_CLASS_URL . 'includes/bootstrap.min.css', 'sicc_css_bootstrap_classes');
                 update_option('sicc_css_bootstrap_classes_vers', '5.3.3');
             }
         }
         if (isset($cssSettings['enable_materialize']) && $cssSettings['enable_materialize'] == '1') {
             if ( version_compare( get_option('sicc_css_materialize_classes_vers'), '1.0.0', '!=') ) {
-                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/materialize-css@1.0.0/dist/css/materialize.min.css', 'sicc_css_materialize_classes');
+                $this::sicc_css_framework_constructor( SI_CSS_CLASS_URL . 'includes/materialize.min.css', 'sicc_css_materialize_classes');
                 update_option('sicc_css_materialize_classes_vers', '1.0.0');
             }
         }
         if (isset($cssSettings['enable_pure']) && $cssSettings['enable_pure'] == '1') {
             if ( version_compare( get_option('sicc_css_pure_classes_vers'), '3.0.0', '!=') ) {
-                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css', 'sicc_css_pure_classes');
+                $this::sicc_css_framework_constructor( SI_CSS_CLASS_URL . 'includes/pure-min.css', 'sicc_css_pure_classes');
                 update_option('sicc_css_pure_classes_vers', '3.0.0');
             }
         }
         if (isset($cssSettings['enable_bulma']) && $cssSettings['enable_bulma'] == '1') {
             if ( version_compare( get_option('sicc_css_bulma_classes_vers'), '1.0.0', '!=') ) {
-                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css', 'sicc_css_bulma_classes');
+                $this::sicc_css_framework_constructor( SI_CSS_CLASS_URL . 'includes/bulma.min.css', 'sicc_css_bulma_classes');
                 update_option('sicc_css_bulma_classes_vers', '1.0.0');
             }
         }
         if (isset($cssSettings['enable_uikit']) && $cssSettings['enable_uikit'] == '1') {
             if ( version_compare( get_option('sicc_css_uikit_classes_vers'), '3.20.4', '!=') ) {
-                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/uikit@3.20.4/dist/css/uikit.min.css', 'sicc_css_uikit_classes');
+                $this::sicc_css_framework_constructor( SI_CSS_CLASS_URL . 'includes/uikit.min.css', 'sicc_css_uikit_classes');
                 update_option('sicc_css_uikit_classes_vers', '3.20.4');
             }
         }
         if (isset($cssSettings['enable_spectre']) && $cssSettings['enable_spectre'] == '1') {
             if ( version_compare( get_option('sicc_css_spectre_classes_vers'), '0.5.9', '!=') ) {
-                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/spectre.css@0.5.9/dist/spectre.min.css', 'sicc_css_spectre_classes');
+                $this::sicc_css_framework_constructor( SI_CSS_CLASS_URL . 'includes/spectre.min.css', 'sicc_css_spectre_classes');
                 update_option('sicc_css_spectre_classes_vers', '0.5.9');
             }
         }
         if (isset($cssSettings['enable_semantic']) && $cssSettings['enable_semantic'] == '1') {
             if ( version_compare( get_option('sicc_css_semantic_classes_vers'), '2.5.0', '!=') ) {
-                $this::sicc_css_framework_constructor('https://cdn.jsdelivr.net/npm/semantic-ui-css@2.5.0/semantic.min.css', 'sicc_css_semantic_classes');
+                $this::sicc_css_framework_constructor( SI_CSS_CLASS_URL . 'includes/semantic.min.css', 'sicc_css_semantic_classes');
                 update_option('sicc_css_semantic_classes_vers', '2.5.0');
             }
         }
@@ -220,7 +220,7 @@ class StudioImmens_CSS_Classes {
             if (isset($cssSettings['enable_bootstrap']) && $cssSettings['enable_bootstrap'] == '1') {
                     wp_enqueue_style(
                     'sicc-bootstrap-css',
-                    'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
+                    SI_CSS_CLASS_URL . 'includes/bootstrap.min.css',
                     array(),
                     '5.3.3'
                 );
@@ -228,7 +228,7 @@ class StudioImmens_CSS_Classes {
             if (isset($cssSettings['enable_materialize']) && $cssSettings['enable_materialize'] == '1') {
                     wp_enqueue_style(
                     'sicc-materialize-css',
-                    'https://cdn.jsdelivr.net/npm/materialize-css@1.0.0/dist/css/materialize.min.css',
+                    SI_CSS_CLASS_URL . 'includes/materialize.min.css',
                     array(),
                     '1.0.0'
                 );
@@ -236,7 +236,7 @@ class StudioImmens_CSS_Classes {
             if (isset($cssSettings['enable_pure']) && $cssSettings['enable_pure'] == '1') {
                     wp_enqueue_style(
                     'sicc-pure-css',
-                    'https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css',
+                    SI_CSS_CLASS_URL . 'includes/pure-min.css',
                     array(),
                     '3.0.0'
                 );
@@ -244,7 +244,7 @@ class StudioImmens_CSS_Classes {
             if (isset($cssSettings['enable_bulma']) && $cssSettings['enable_bulma'] == '1') {
                     wp_enqueue_style(
                     'sicc-bulma-css',
-                    'https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css',
+                    SI_CSS_CLASS_URL . 'includes/bulma.min.css',
                     array(),
                     '1.0.0'
                 );
@@ -252,7 +252,7 @@ class StudioImmens_CSS_Classes {
             if (isset($cssSettings['enable_uikit']) && $cssSettings['enable_uikit'] == '1') {
                     wp_enqueue_style(
                     'sicc-uikit-css',
-                    'https://cdn.jsdelivr.net/npm/uikit@3.20.4/dist/css/uikit.min.css',
+                    SI_CSS_CLASS_URL . 'includes/uikit.min.css',
                     array(),
                     '3.20.4'
                 );
@@ -260,7 +260,7 @@ class StudioImmens_CSS_Classes {
             if (isset($cssSettings['enable_spectre']) && $cssSettings['enable_spectre'] == '1') {
                     wp_enqueue_style(
                     'sicc-spectre-css',
-                    'https://cdn.jsdelivr.net/npm/spectre.css@0.5.9/dist/spectre.min.css',
+                    SI_CSS_CLASS_URL . 'includes/spectre.min.css',
                     array(),
                     '0.5.9'
                 );
@@ -268,7 +268,7 @@ class StudioImmens_CSS_Classes {
             if (isset($cssSettings['enable_semantic']) && $cssSettings['enable_semantic'] == '1') {
                     wp_enqueue_style(
                     'sicc-semantic-css',
-                    'https://cdn.jsdelivr.net/npm/semantic-ui-css@2.5.0/semantic.min.css',
+                    SI_CSS_CLASS_URL . 'includes/semantic.min.css',
                     array(),
                     '2.5.0'
                 );
@@ -318,7 +318,7 @@ class StudioImmens_CSS_Classes {
             ]);
             wp_enqueue_style(
                 'sicc-bootstrap-css',
-                'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
+                SI_CSS_CLASS_URL . 'includes/bootstrap.min.css',
                 array(),
                 '5.3.3'
             );
@@ -340,7 +340,7 @@ class StudioImmens_CSS_Classes {
             ]);
             wp_enqueue_style(
                 'sicc-materialize-css',
-                'https://cdn.jsdelivr.net/npm/materialize-css@1.0.0/dist/css/materialize.min.css',
+                SI_CSS_CLASS_URL . 'includes/materialize.min.css',
                 array(),
                 '1.0.0'
             );
@@ -362,7 +362,7 @@ class StudioImmens_CSS_Classes {
             ]);
             wp_enqueue_style(
                 'sicc-pure-css',
-                'https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css',
+                SI_CSS_CLASS_URL . 'includes/pure-min.css',
                 array(),
                 '3.0.0'
             );
@@ -384,7 +384,7 @@ class StudioImmens_CSS_Classes {
             ]);
             wp_enqueue_style(
                 'sicc-bulma-css',
-                'https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css',
+                SI_CSS_CLASS_URL . 'includes/bulma.min.css',
                 array(),
                 '1.0.0'
             );
@@ -406,7 +406,7 @@ class StudioImmens_CSS_Classes {
             ]);
             wp_enqueue_style(
                 'sicc-uikit-css',
-                'https://cdn.jsdelivr.net/npm/uikit@3.20.4/dist/css/uikit.min.css',
+                SI_CSS_CLASS_URL . 'includes/uikit.min.css',
                 array(),
                 '3.20.4'
             );
@@ -428,7 +428,7 @@ class StudioImmens_CSS_Classes {
             ]);
             wp_enqueue_style(
                 'sicc-spectre-css',
-                'https://cdn.jsdelivr.net/npm/spectre.css@0.5.9/dist/spectre.min.css',
+                SI_CSS_CLASS_URL . 'includes/spectre.min.css',
                 array(),
                 '0.5.9'
             );
@@ -450,7 +450,7 @@ class StudioImmens_CSS_Classes {
             ]);
             wp_enqueue_style(
                 'sicc-semantic-css',
-                'https://cdn.jsdelivr.net/npm/semantic-ui-css@2.5.0/semantic.min.css',
+                SI_CSS_CLASS_URL . 'includes/semantic.min.css',
                 array(),
                 '2.5.0'
             );
