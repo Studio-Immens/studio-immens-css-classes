@@ -4,7 +4,7 @@ Tags:               css, utility classes, design, frontend, custom classes
 Requires at least:  5.8  
 Tested up to:       6.8  
 Requires PHP:       7.4  
-Stable tag:         1.1.1  
+Stable tag:         1.2.1  
 License:            GPLv2 or later  
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -65,6 +65,13 @@ No. The CSS file is minimal, loads optimally, and doesn't include JavaScript.
 2. Interface for inserting custom CSS classes into blocks.
 
 == Changelog ==
+
+= 1.2.1 =
+* bug fix
+* Added setting page options
+
+= 1.1.1 =
+* bug fix
 
 = 1.1.0 =
 * Added multiple set of framework CSS easly selectable from editor ( bootstrap, materialize, purecss, uikit, spectre, bulma, semantic )

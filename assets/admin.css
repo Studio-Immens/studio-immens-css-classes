@@ -5,7 +5,7 @@
       background-color: #e4f1f9;
       color: #14191f;
     }
-    .container {
+    .si-container {
       max-width: 800px;
       margin: 0 auto;
       padding: 40px 20px;
@@ -72,7 +72,7 @@
     font-weight: 600;
     margin-bottom: 5px;
 }
-.si-form-group input,
+.si-form-group input[type="text"],
 .si-form-group textarea {
     width: 100%;
 }
@@ -85,6 +85,13 @@
     right: 50px;
     max-width: 300px;
     width: 30%;
+    border-radius: 10px;
+}
+
+.si-box {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    padding: 20px;
     border-radius: 10px;
 }
 
