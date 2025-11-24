@@ -2,8 +2,6 @@
 
 ⚡️ Create your own set of custom CSS classes, ready to use with one click, to enhance the design of your Gutenberg blocks.
 
-Developed by [Studio Immens](https://www.studioimmens.com) – Modular digital systems for entrepreneurs and professionals.
-
 [Screenshot](https://raw.githubusercontent.com/Immens95/studio-immens-css-classes/main/screenshot.png)
 
 ---
