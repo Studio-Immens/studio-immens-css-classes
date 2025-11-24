@@ -20,8 +20,8 @@ This plugin allows you to create custom classes and add them directly to Gutenbe
 
 ## ✅ Key Features
 
-- **Compatible** with Gutenberg, Blocksy, Astra, Kadence
-- Minimal CSS, **zero JavaScript**
+- **Compatible** with Gutenberg, Blocksy, Astra, Kadence and many others
+- Minimal CSS
 - Ultra-optimized performance
 
 ---
