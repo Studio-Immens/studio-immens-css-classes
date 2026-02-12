@@ -9,7 +9,40 @@ jQuery(document).ready(function($) {
     const $remClass = $('#remove-class');
 
     const $classCss = $('#class-css');
+    const $hoverCss = $('#hover-css');
+    const $focusCss = $('#focus-css');
     
+    // Inizializza CodeMirror se disponibile
+    const editors = {};
+    if (typeof wp !== 'undefined' && wp.codeEditor && siCodeMirror) {
+        ['class-css', 'hover-css', 'focus-css'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                const editor = wp.codeEditor.initialize(el, siCodeMirror.settings);
+                editors[id] = editor.codemirror;
+                
+                // Sync manuale per l'anteprima live
+                if (id === 'class-css') {
+                    editors[id].on('change', function(cm) {
+                        const val = cm.getValue();
+                        $classCss.val(val);
+                        $preview.attr('style', val);
+                    });
+                } else {
+                    editors[id].on('change', function(cm) {
+                        $(`#${id}`).val(cm.getValue());
+                    });
+                }
+            }
+        });
+
+        // Anche per la textarea della configurazione Tailwind se presente
+        const twEl = document.getElementsByName('sicc_css_tailwind_config')[0];
+        if (twEl) {
+            wp.codeEditor.initialize(twEl, siCodeMirror.settings);
+        }
+    }
+
     // Stato preview
     let previewEnabled = true;
     $livePreview.on('change', function() {
@@ -112,6 +145,10 @@ jQuery(document).ready(function($) {
 
         $('#edit-or-not').val('yes');
 
+        if (editors['class-css']) editors['class-css'].setValue(css);
+        if (editors['hover-css']) editors['hover-css'].setValue(hover);
+        if (editors['focus-css']) editors['focus-css'].setValue(focus);
+
         $preview.css('cssText', css);
         window.scrollTo({
           top: 0,
@@ -153,6 +190,9 @@ jQuery(document).ready(function($) {
                 if (response.success) {
                     $form.trigger('reset');
                     $('#edit-or-not').val('no');
+                    if (editors['class-css']) editors['class-css'].setValue('');
+                    if (editors['hover-css']) editors['hover-css'].setValue('');
+                    if (editors['focus-css']) editors['focus-css'].setValue('');
                     loadClasses();
                 } else {
                     console.error('Errore nel salvataggio:', response.data);
@@ -175,6 +215,9 @@ jQuery(document).ready(function($) {
                 if (response.success) {
                     $form.trigger('reset');
                     $('#edit-or-not').val('no');
+                    if (editors['class-css']) editors['class-css'].setValue('');
+                    if (editors['hover-css']) editors['hover-css'].setValue('');
+                    if (editors['focus-css']) editors['focus-css'].setValue('');
                     loadClasses();
                 } else {
                     console.error('Errore nel salvataggio:', response.data);
@@ -210,6 +253,10 @@ jQuery(document).ready(function($) {
         $('#class-css').val('');
         $('#hover-css').val('');
         $('#focus-css').val('');
+
+        if (editors['class-css']) editors['class-css'].setValue('');
+        if (editors['hover-css']) editors['hover-css'].setValue('');
+        if (editors['focus-css']) editors['focus-css'].setValue('');
 
         $('#edit-or-not').val('no');
     });

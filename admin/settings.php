@@ -136,11 +136,71 @@
                                 <?php esc_html_e('display Semantic CSS in admin', 'studio-immens-css-classes'); ?>
                             </label>
         <!-- Semantic --></div>
+        <!-- Foundation --><div class="si-form-group">
+                            <label for="si_enable_foundation">
+                                <input type="checkbox" name="sicc_css_settings[enable_foundation]" id="si_enable_foundation" value="1" <?php checked(1, get_option('sicc_css_settings')['enable_foundation'] ?? 0); ?>>
+                                <?php esc_html_e('enable Foundation CSS', 'studio-immens-css-classes'); ?>
+                            </label>
+
+                            <label for="si_display_in_editor_foundation">
+                                <input type="checkbox" name="sicc_css_settings[disp_edit_foundation]" id="si_display_in_editor_foundation" value="1" <?php checked(1, get_option('sicc_css_settings')['disp_edit_foundation'] ?? 0); ?>>
+                                <?php esc_html_e('display Foundation CSS in editor', 'studio-immens-css-classes'); ?>
+                            </label>
+
+                            <label for="si_display_in_admin_foundation">
+                                <input type="checkbox" name="sicc_css_settings[disp_admin_foundation]" id="si_display_in_admin_foundation" value="1" <?php checked(1, get_option('sicc_css_settings')['disp_admin_foundation'] ?? 0); ?>>
+                                <?php esc_html_e('display Foundation CSS in admin', 'studio-immens-css-classes'); ?>
+                            </label>
+        <!-- Foundation --></div>
+        <!-- Tailwind --><div class="si-form-group">
+                            <label for="si_enable_tailwind">
+                                <input type="checkbox" name="sicc_css_settings[enable_tailwind]" id="si_enable_tailwind" value="1" <?php checked(1, get_option('sicc_css_settings')['enable_tailwind'] ?? 0); ?>>
+                                <?php esc_html_e('enable Tailwind CSS (via CDN)', 'studio-immens-css-classes'); ?>
+                            </label>
+
+                            <label for="si_display_frontend_tailwind">
+                                <input type="checkbox" name="sicc_css_settings[disp_frontend_tailwind]" id="si_display_frontend_tailwind" value="1" <?php checked(1, get_option('sicc_css_settings')['disp_frontend_tailwind'] ?? 0); ?>>
+                                <?php esc_html_e('enable Tailwind on frontend', 'studio-immens-css-classes'); ?>
+                            </label>
+                            
+                            <p class="description"><?php esc_html_e('Tailwind Play CDN is great for development, but consider using a build step for production.', 'studio-immens-css-classes'); ?></p>
+        <!-- Tailwind --></div>
                     </div>
                 </div>
             </div>
 
             <div class="si-preview-column">
+                <div class="si-preview-box">
+                    <h2><?php esc_html_e('Tailwind Configuration', 'studio-immens-css-classes'); ?></h2>
+                    <div class="si-form-group">
+                        <textarea name="sicc_css_tailwind_config" rows="10" style="width:100%; font-family:monospace; background:#f0f0f0; padding:10px; border:1px solid #ccc;"><?php echo esc_textarea(get_option('sicc_css_tailwind_config', '')); ?></textarea>
+                        <p class="description"><?php esc_html_e('Enter your tailwind.config object here (JSON format). Example: { theme: { extend: { colors: { primary: "#ff0000" } } } }', 'studio-immens-css-classes'); ?></p>
+                    </div>
+                </div>
+                <div class="si-preview-box">
+                    <h2><?php esc_html_e('Backup & Tools', 'studio-immens-css-classes'); ?></h2>
+                    <div class="si-form-group">
+                        <a href="<?php echo wp_nonce_url(admin_url('admin.php?page=studioimmens-css-settings&action=sicc_export'), 'sicc_export_nonce'); ?>" class="button button-primary"><?php esc_html_e('Export Data (JSON)', 'studio-immens-css-classes'); ?></a>
+                    </div>
+                    <hr>
+                    <div class="si-form-group">
+                        <h3><?php esc_html_e('Import Data', 'studio-immens-css-classes'); ?></h3>
+                        <form method="post" enctype="multipart/form-data" action="">
+                            <?php wp_nonce_field('sicc_import_nonce'); ?>
+                            <input type="file" name="sicc_import_file" accept=".json" style="margin-bottom:10px; display:block;">
+                            <input type="submit" name="sicc_import_submit" class="button button-secondary" value="<?php esc_attr_e('Upload & Import JSON', 'studio-immens-css-classes'); ?>">
+                        </form>
+                    </div>
+                    <hr>
+                    <div class="si-form-group">
+                        <h3><?php esc_html_e('Reset Settings', 'studio-immens-css-classes'); ?></h3>
+                        <form method="post" action="" onsubmit="return confirm('<?php esc_attr_e('Are you sure you want to reset all settings? This action cannot be undone.', 'studio-immens-css-classes'); ?>');">
+                            <?php wp_nonce_field('sicc_reset_nonce'); ?>
+                            <p class="description" style="margin-bottom:10px;"><?php esc_html_e('This will delete all custom classes, plugin settings, and Tailwind configuration.', 'studio-immens-css-classes'); ?></p>
+                            <input type="submit" name="sicc_reset_submit" class="button button-link-delete" value="<?php esc_attr_e('Reset All Settings', 'studio-immens-css-classes'); ?>">
+                        </form>
+                    </div>
+                </div>
                 <div class="si-preview-box">
                     <h2><?php esc_html_e('Instructions', 'studio-immens-css-classes'); ?></h2>
                     <div class="si-instructions">
@@ -167,6 +227,7 @@
                 toggleInputFramework('#si_enable_uikit', '#si_display_in_editor_uikit', '#si_display_in_admin_uikit');
                 toggleInputFramework('#si_enable_spectre', '#si_display_in_editor_spectre', '#si_display_in_admin_spectre');
                 toggleInputFramework('#si_enable_semantic', '#si_display_in_editor_semantic', '#si_display_in_admin_semantic');
+                toggleInputFramework('#si_enable_foundation', '#si_display_in_editor_foundation', '#si_display_in_admin_foundation');
             }
 
             function toggleInputFramework(is_enable, is_disp, is_disp_adm = '') {

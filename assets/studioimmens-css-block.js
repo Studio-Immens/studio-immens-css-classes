@@ -31,8 +31,8 @@ console.log( 'Studio Immens css block is loaded' );
             );
         },
         save: function( props ) {
-            // Il CSS viene iniettato nel frontend all'interno di <style>
-            return el( 'style', {}, props.attributes.cssCode );
+            // Il CSS viene iniettato nel frontend tramite render_callback in PHP (output in head)
+            return null;
         }
     } );
 } )(
