@@ -1,0 +1,19 @@
+name: Deploy to WordPress.org
+on:
+  push:
+    tags:
+      - '*' # Si attiva ogni volta che crei un nuovo tag (es. 1.0.1)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: WordPress.org Deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SLUG: studio-immens-css-classes # Quello che appare nell'URL di WP.org
