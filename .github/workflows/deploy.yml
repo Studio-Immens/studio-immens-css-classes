@@ -3,17 +3,21 @@ on:
   push:
     tags:
       - '*' # Si attiva ogni volta che crei un nuovo tag (es. 1.0.1)
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      # Forza l'uso di Node 24 come richiesto dai log di GitHub
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
+      # Aggiornato alla v4 (supporta Node 24+)
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: WordPress.org Deploy
+        # Usa la versione più recente o la stabile verificata
         uses: 10up/action-wordpress-plugin-deploy@stable
         env:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-          SLUG: studio-immens-css-classes # Quello che appare nell'URL di WP.org
+          SLUG: studio-immens-css-classes # ATTENZIONE: Deve essere identico allo slug di WP.org
