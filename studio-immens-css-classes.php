@@ -1,6 +1,7 @@
 <?php
 /*
 Plugin Name: Studio Immens CSS Classes
+Plugin URI: https://studioimmens.com/css-classes
 Description: Add custom CSS classes to Gutenberg blocks with live preview.
 Version: 2.0.0
 Requires at least:  5.8  
