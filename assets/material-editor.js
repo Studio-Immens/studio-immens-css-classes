@@ -1,8 +1,3 @@
-console.log(
-  'Studio Immens css material-editor is loaded',
-  typeof siCssDataMt !== 'undefined' ? siCssDataMt : 'siCssDataMt NON definito'
-);
-
 (function () {
   if (
     typeof wp === 'undefined' ||

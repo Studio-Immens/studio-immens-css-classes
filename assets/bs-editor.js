@@ -1,8 +1,3 @@
-console.log(
-  'Studio Immens css bs-editor is loaded',
-  typeof siCssDataBs !== 'undefined' ? siCssDataBs : 'siCssDataBs NON definito'
-);
-
 (function () {
   if (
     typeof wp === 'undefined' ||

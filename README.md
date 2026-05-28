@@ -1,4 +1,4 @@
-# Studio Immens CSS Classes
+# ClassyBlocks
 
 ⚡️ Create your own set of custom CSS classes, ready to use with one click, to enhance the design of your Gutenberg blocks.
 
@@ -8,7 +8,7 @@
 
 ## 🚀 Introduction
 
-**Studio Immens CSS Classes** is a WordPress plugin that adds a section where you can build your own CSS arsenal, so you always have it ready to use to quickly optimize and customize the layout of your WordPress pages, with a focus on:
+**ClassyBlocks** is a WordPress plugin that adds a section where you can build your own CSS arsenal, so you always have it ready to use to quickly optimize and customize the layout of your WordPress pages, with a focus on:
 
 - Gutenberg Editor
 - Themes like Blocksy, GeneratePress, Astra

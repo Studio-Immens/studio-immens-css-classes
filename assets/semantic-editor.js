@@ -1,8 +1,3 @@
-console.log(
-  'Studio Immens css semantic-editor is loaded',
-  typeof siCssDataSe !== 'undefined' ? siCssDataSe : 'siCssDataSe NON definito'
-);
-
 (function () {
   if (
     typeof wp === 'undefined' ||

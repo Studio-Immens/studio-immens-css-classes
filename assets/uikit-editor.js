@@ -1,8 +1,3 @@
-console.log(
-  'Studio Immens css uikit-editor is loaded',
-  typeof siCssDataUi !== 'undefined' ? siCssDataUi : 'siCssDataUi NON definito'
-);
-
 (function () {
   if (
     typeof wp === 'undefined' ||

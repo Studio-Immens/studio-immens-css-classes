@@ -1,5 +1,3 @@
-console.log( 'Studio Immens css block is loaded' );
-
 ( function( blocks, element, blockEditor, i18n ) {
     const { registerBlockType } = blocks;
     const { createElement: el } = element;

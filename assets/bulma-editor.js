@@ -1,8 +1,3 @@
-console.log(
-  'Studio Immens css bulma-editor is loaded',
-  typeof siCssDataBl !== 'undefined' ? siCssDataBl : 'siCssDataBl NON definito'
-);
-
 (function () {
   if (
     typeof wp === 'undefined' ||

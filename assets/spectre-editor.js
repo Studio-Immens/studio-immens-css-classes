@@ -1,8 +1,3 @@
-console.log(
-  'Studio Immens css spectre-editor is loaded',
-  typeof siCssDataSp !== 'undefined' ? siCssDataSp : 'siCssDataSp NON definito'
-);
-
 (function () {
   if (
     typeof wp === 'undefined' ||

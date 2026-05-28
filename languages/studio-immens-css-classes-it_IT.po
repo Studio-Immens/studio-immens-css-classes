@@ -1,449 +1,391 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Studio Immens CSS Classes\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-19 22:46+0000\n"
-"PO-Revision-Date: 2025-08-08 15:49+0000\n"
-"Last-Translator: \n"
+"Project-Id-Version: ClassyBlocks\n"
+"POT-Creation-Date: 2026-05-26 10:00+0000\n"
+"PO-Revision-Date: 2026-05-26 10:00+0000\n"
+"Last-Translator: Studio Immens\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.0; wp-6.8.2; php-8.2.12\n"
-"X-Domain: studio-immens-css-classes"
+"X-Domain: studio-immens-css-classes\n"
 
-#: admin/studioimmens.php:8
-msgid ""
-" for professionals, entrepreneurs and companies: WordPress plugins, CRM, "
-"automations, landing pages and complete systems ready to sell."
-msgstr ""
-" per professionisti, imprenditori e aziende: plugin WordPress, CRM, "
-"automazioni, landing page e sistemi completi pronti a vendere."
+msgid "ClassyBlocks requires WordPress 5.0 or higher. Your version is %s."
+msgstr "ClassyBlocks richiede WordPress 5.0 o versione successiva. La tua versione %s."
 
-#: admin/studioimmens.php:11
-msgid " What we do (and what we DON'T do)"
-msgstr "Cosa facciamo (e cosa NON facciamo)"
+msgid "ClassyBlocks"
+msgstr "ClassyBlocks"
 
-#. Description of the plugin
-msgid "Add custom CSS classes to Gutenberg blocks with live preview."
-msgstr ""
-"Aggiungi classi CSS personalizzate ai blocchi Gutenberg con anteprima live."
+msgid "Resources"
+msgstr "Risorse"
 
-#: admin/admin-ui.php:8
-msgid "Add New CSS Class"
-msgstr "Aggiungi nuova classe CSS"
-
-#: admin/studioimmens.php:16
-msgid "All connected and at your service."
-msgstr "Tutto connesso e al tuo servizio."
-
-#: admin/studioimmens.php:7
-msgid "and why you can trust us"
-msgstr "e perché puoi fidarti di noi"
-
-#: admin/studioimmens.php:9
-msgid "and work intelligently."
-msgstr "e lavorare in modo intelligente."
-
-#: admin/studioimmens.php:13
-msgid ""
-"based on OVH cloud infrastructures, advanced automations and direct response "
-"marketing, tailored to your sector."
-msgstr ""
-"Basato su infrastrutture cloud OVH, automazioni avanzate e marketing a "
-"risposta diretta, su misura per il tuo settore."
-
-#: studio-immens-css-classes.php:310
-msgid "Bootstrap Classes"
-msgstr "Bootstrap Classes"
-
-#: studio-immens-css-classes.php:376
-msgid "Bulma Classes"
-msgstr "Bulma Classes"
-
-#: admin/admin-ui.php:30
-msgid "Class :focus"
-msgstr "Classe :focus"
-
-#: admin/admin-ui.php:25
-msgid "Class :hover"
-msgstr "Classe :hover"
-
-#: admin/admin-ui.php:20
-msgid "Class Code"
-msgstr "Codice della classe"
-
-#: admin/admin-ui.php:14
-msgid "Class Name"
-msgstr "Nome della classe"
-
-#: admin/admin-ui.php:77
-msgid "classes"
-msgstr "classi"
-
-#: studio-immens-css-classes.php:161 studio-immens-css-classes.php:162
-#: studio-immens-css-classes.php:295
-msgid "CSS Classes"
-msgstr "Classi CSS"
-
-#: studio-immens-css-classes.php:465
-msgid "Custom CSS"
-msgstr "CSS Personalizzato"
-
-#: studio-immens-css-classes.php:213
-msgid "Delete"
-msgstr "Elimina"
-
-#: admin/studioimmens.php:23
-msgid "Discover Studio Immens"
-msgstr "Scopri Studio Immens"
-
-#: admin/studioimmens.php:17
-msgid ""
-"Each plugin is designed to be part of a digital war machine that works even "
-"when you are not working."
-msgstr ""
-"Ogni plugin è progettato per essere parte di una macchina da guerra digitale "
-"che funziona anche quando non stai lavorando."
-
-#: admin/studioimmens.php:9
-msgid "earn more, automate everything possible "
-msgstr "guadagnare di più, automatizzare tutto il possibile"
-
-#: studio-immens-css-classes.php:215
-msgid "Edit"
-msgstr "Modifica"
-
-#: admin/settings.php:18
-msgid "enable Bootstrap CSS"
-msgstr "abilita Bootstrap CSS"
-
-#: admin/settings.php:39
-msgid "enable Bulma CSS"
-msgstr "abilita Bulma CSS"
-
-#: admin/admin-ui.php:48
-msgid "Enable Live Preview"
-msgstr "Abilita anteprima live"
-
-#: admin/settings.php:25
-msgid "enable Materialize CSS"
-msgstr "abilita Materialize CSS"
-
-#: admin/settings.php:32
-msgid "enable Pure CSS"
-msgstr "abilita Pure CSS"
-
-#: admin/settings.php:60
-msgid "enable Semantic CSS"
-msgstr "abilita Semantic CSS"
-
-#: admin/settings.php:53
-msgid "enable Spectre CSS"
-msgstr "abilita CSS Spectre"
-
-#: admin/settings.php:46
-msgid "enable Uikit CSS"
-msgstr "abilita Uikit CSS"
-
-#: studio-immens-css-classes.php:466
-msgid "Enter CSS to apply to this post:"
-msgstr "Inserisci il codice CSS da applicare a questo post:"
-
-#: admin/admin-ui.php:74
-msgid "Export"
-msgstr "Esportare"
-
-#: admin/studioimmens.php:20
-msgid "Help you"
-msgstr "Aiutarti"
-
-#: admin/studioimmens.php:8
-msgid "high-performance digital tools"
-msgstr "strumenti digitali ad alte prestazioni"
-
-#: admin/studioimmens.php:9
-msgid ""
-"If you are using this plugin, you are already entering a larger ecosystem, "
-"designed to make you"
-msgstr ""
-"Se stai utilizzando questo plugin, stai già entrando in un ecosistema più "
-"ampio, progettato per farti"
-
-#: admin/admin-ui.php:73
-msgid "Import"
-msgstr "Importa"
-
-#: admin/settings.php:69
-msgid "Instructions"
-msgstr "Istruzioni"
-
-#: studio-immens-css-classes.php:300 studio-immens-css-classes.php:315
-#: studio-immens-css-classes.php:337 studio-immens-css-classes.php:359
-#: studio-immens-css-classes.php:381 studio-immens-css-classes.php:403
-#: studio-immens-css-classes.php:425 studio-immens-css-classes.php:447
-#: admin/admin-ui.php:44
-msgid "Live Preview"
-msgstr "Anteprima live"
-
-#: admin/admin-ui.php:54
-msgid ""
-"Lorem Ipsum is simply dummy text of <br>the printing and typesetting "
-"industry."
-msgstr ""
-"Lorem Ipsum è semplicemente un testo fittizio <br>utilizzato nel settore "
-"della tipografia e della stampa.\n"
-
-#: studio-immens-css-classes.php:332
-msgid "Materialize Classes"
-msgstr "Materialize Classes"
-
-#: studio-immens-css-classes.php:301 studio-immens-css-classes.php:316
-#: studio-immens-css-classes.php:338 studio-immens-css-classes.php:360
-#: studio-immens-css-classes.php:382 studio-immens-css-classes.php:404
-#: studio-immens-css-classes.php:426 studio-immens-css-classes.php:448
-msgid "No classes found"
-msgstr "Nessuna classe trovata"
-
-#: admin/studioimmens.php:19
-msgid "Our goal is only one"
-msgstr "Il nostro obiettivo è solo uno"
-
-#: admin/settings.php:14
-msgid "Plugin Configuration"
-msgstr "Configurazione del plugin"
-
-#: admin/studioimmens.php:27
-msgid "Plugin developed by "
-msgstr "Plugin sviluppato da"
-
-#: studio-immens-css-classes.php:214 studio-immens-css-classes.php:297
-#: studio-immens-css-classes.php:312 studio-immens-css-classes.php:334
-#: studio-immens-css-classes.php:356 studio-immens-css-classes.php:378
-#: studio-immens-css-classes.php:400 studio-immens-css-classes.php:422
-#: studio-immens-css-classes.php:444
-msgid "Preview"
-msgstr "Anteprima"
-
-#: studio-immens-css-classes.php:354
-msgid "Pure Classes"
-msgstr "Pure Classes"
-
-#: admin/admin-ui.php:35
-msgid "Save Class"
-msgstr "Salva classe"
-
-#: admin/settings.php:79
-msgid "Save Settings"
-msgstr "Salva impostazioni"
-
-#: admin/studioimmens.php:20
-msgid "scale your digital business "
-msgstr "fai crescere il tuo business digitale"
-
-#: studio-immens-css-classes.php:298 studio-immens-css-classes.php:313
-#: studio-immens-css-classes.php:335 studio-immens-css-classes.php:357
-#: studio-immens-css-classes.php:379 studio-immens-css-classes.php:401
-#: studio-immens-css-classes.php:423 studio-immens-css-classes.php:445
-msgid "Search Classes"
-msgstr "Cerca classi"
-
-#: admin/admin-ui.php:72
-msgid "Search classes..."
-msgstr "Cerca classi..."
-
-#: studio-immens-css-classes.php:296 studio-immens-css-classes.php:311
-#: studio-immens-css-classes.php:333 studio-immens-css-classes.php:355
-#: studio-immens-css-classes.php:377 studio-immens-css-classes.php:399
-#: studio-immens-css-classes.php:421 studio-immens-css-classes.php:443
-msgid "Select Class"
-msgstr "Seleziona classe"
-
-#: studio-immens-css-classes.php:442
-msgid "Semantic Classes"
-msgstr "Semantic Classes"
-
-#: studio-immens-css-classes.php:179 studio-immens-css-classes.php:180
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: studio-immens-css-classes.php:420
-msgid "Spectre Classes"
-msgstr "Spectre Classes"
+msgid "Delete"
+msgstr "Elimina"
 
-#. Author of the plugin
-#: studio-immens-css-classes.php:171 studio-immens-css-classes.php:172
-msgid "Studio Immens"
-msgstr "Studio Immens"
+msgid "Preview"
+msgstr "Anteprima"
 
-#: admin/settings.php:3
-msgid "Studio Immens - Settings"
-msgstr "Studio Immens - Impostazioni"
+msgid "Edit"
+msgstr "Modifica"
 
-#. Name of the plugin
-#: admin/admin-ui.php:2
-msgid "Studio Immens CSS Classes"
-msgstr "Studio Immens CSS Classes"
+msgid "Please fill in all required fields."
+msgstr "Compila tutti i campi obbligatori."
 
-#. CSS Classes requires WordPress 5.0 or higher
-#: studio-immens-css-classes.php:152
-#, php-format
-msgid ""
-"Studio Immens CSS Classes requires WordPress 5.0 or higher. Your version is "
-"%s."
-msgstr ""
-"Studio Immens CSS Classes richiede WordPress 5.0 o versione successiva. La "
-"tua versione è %s."
+msgid "Error saving class."
+msgstr "Errore durante il salvataggio della classe."
 
-#: admin/studioimmens.php:8
-msgid "Studio Immens is a tech company that develops "
-msgstr ""
-"Studio Immens è un'azienda tecnologica che sviluppa\n"
+msgid "No classes found."
+msgstr "Nessuna classe trovata."
 
-#: admin/studioimmens.php:3
-msgid "Studio Immens – Chi siamo"
-msgstr "Studio Immens – Chi siamo"
+msgid "Custom CSS"
+msgstr "CSS Personalizzato"
 
-#: admin/settings.php:4
-msgid "Support & Docs"
-msgstr "Supporto e documentazione"
+msgid "Enter CSS to apply to this post:"
+msgstr "Inserisci il CSS da applicare a questo articolo:"
 
-#: admin/studioimmens.php:15
-msgid "Technology + Method = Result"
-msgstr "Tecnologia + Metodo = Risultato"
+msgid "Select Class"
+msgstr "Seleziona Classe"
 
-#: admin/settings.php:71
-msgid ""
-"This plugin allows you to manage and inject custom CSS classes globally and "
-"inside the editor. Use this settings page to configure behavior."
-msgstr ""
-"Questo plugin consente di gestire e iniettare classi CSS personalizzate a "
-"livello globale e all'interno dell'editor. Utilizza questa pagina delle "
-"impostazioni per configurare il comportamento.\n"
+msgid "Search Classes"
+msgstr "Cerca Classi"
 
-#: admin/studioimmens.php:28
-msgid "to learn about all our tools and services."
-msgstr "per scoprire tutti i nostri strumenti e servizi."
-
-#: admin/settings.php:72
-msgid "Toggle features on/off using the checkboxes."
-msgstr ""
-"Attiva/disattiva le funzionalità utilizzando le caselle di controllo.\n"
-
-#: admin/studioimmens.php:13
-msgid "turnkey digital systems"
-msgstr "sistemi digitali chiavi in ​​mano"
-
-#: studio-immens-css-classes.php:299 studio-immens-css-classes.php:314
-#: studio-immens-css-classes.php:336 studio-immens-css-classes.php:358
-#: studio-immens-css-classes.php:380 studio-immens-css-classes.php:402
-#: studio-immens-css-classes.php:424 studio-immens-css-classes.php:446
 msgid "Type to search..."
-msgstr "Digita per cercare..."
+msgstr "Scrivi per cercare..."
 
-#: studio-immens-css-classes.php:398
-msgid "Uikit Classes"
-msgstr "Uikit Classes"
+msgid "Live Preview"
+msgstr "Anteprima Live"
 
-#: admin/admin-ui.php:3
-msgid "View Pro Features"
-msgstr "Visualizza le funzionalità Pro"
+msgid "No classes found"
+msgstr "Nessuna classe trovata"
 
-#: admin/studioimmens.php:28
-msgid "Visit"
-msgstr "Visita"
+msgid "Error: Only JSON files are allowed."
+msgstr "Errore: Sono consentiti solo file JSON."
 
-#: admin/studioimmens.php:12
-msgid ""
-"We are not a web agency. We do not sell \"showcase sites\" or projects "
-"without a strategy."
-msgstr ""
-"Non siamo una web agency. Non vendiamo \"siti vetrina\" o progetti senza una "
-"strategia."
+msgid "Error: Upload failed."
+msgstr "Errore: Caricamento fallito."
 
-#: admin/studioimmens.php:13
-msgid "We create"
-msgstr "Noi creiamo"
+msgid "Error: File exceeds maximum size of 2MB."
+msgstr "Errore: Il file supera la dimensione massima di 2MB."
 
-#: admin/studioimmens.php:16
-msgid "We only use proprietary, modular and integrable tools: "
-msgstr "Utilizziamo solo strumenti proprietari, modulari e integrabili:"
+msgid "Error: Invalid file type."
+msgstr "Errore: Tipo di file non valido."
 
-#: admin/settings.php:20
-msgid ""
-"When enabled, Bootstrap CSS classes will be listed and selectable in the "
-"editor and inserted into the site’s front-end."
-msgstr ""
-"Se abilitate, le classi CSS Bootstrap saranno elencate e selezionabili "
-"nell'editor e inserite nel front-end del sito."
+msgid "Error: Invalid JSON file."
+msgstr "Errore: File JSON non valido."
 
-#: admin/settings.php:41
-msgid ""
-"When enabled, Bulma CSS classes will be listed and selectable in the editor "
-"and inserted into the site’s front-end."
-msgstr ""
-"Se abilitate, le classi CSS Bulma saranno elencate e selezionabili "
-"nell'editor e inserite nel front-end del sito."
+msgid "Import completed successfully!"
+msgstr "Importazione completata con successo!"
 
-#: admin/settings.php:27
-msgid ""
-"When enabled, Materialize CSS classes will be listed and selectable in the "
-"editor and inserted into the site’s front-end."
-msgstr ""
-"Se abilitate, le classi CSS Materialize saranno elencate e selezionabili "
-"nell'editor e inserite nel front-end del sito."
+msgid "Error: Data structure is invalid."
+msgstr "Errore: La struttura dei dati non è valida."
 
-#: admin/settings.php:34
-msgid ""
-"When enabled, Pure CSS classes will be listed and selectable in the editor "
-"and inserted into the site’s front-end."
-msgstr ""
-"Se abilitate, le classi CSS Pure saranno elencate e selezionabili "
-"nell'editor e inserite nel front-end del sito."
+msgid "All settings have been reset to default."
+msgstr "Tutte le impostazioni sono state ripristinate."
 
-#: admin/settings.php:62
-msgid ""
-"When enabled, Semantic CSS classes will be listed and selectable in the "
-"editor and inserted into the site’s front-end."
-msgstr ""
-"Se abilitate, le classi CSS Semantic saranno elencate e selezionabili "
-"nell'editor e inserite nel front-end del sito."
+msgid "ClassyBlocks - Settings"
+msgstr "ClassyBlocks - Impostazioni"
 
-#: admin/settings.php:55
-msgid ""
-"When enabled, Spectre CSS classes will be listed and selectable in the "
-"editor and inserted into the site’s front-end."
-msgstr ""
-"Se abilitate, le classi CSS Spectre saranno elencate e selezionabili "
-"nell'editor e inserite nel front-end del sito."
+msgid "CSS Frameworks"
+msgstr "Framework CSS"
 
-#: admin/settings.php:48
-msgid ""
-"When enabled, Uikit CSS classes will be listed and selectable in the editor "
-"and inserted into the site’s front-end."
-msgstr ""
-"Se abilitate, le classi CSS Uikit saranno elencate e selezionabili "
-"nell'editor e inserite nel front-end del sito."
+msgid "Enable CSS frameworks to make their classes available in the Gutenberg editor."
+msgstr "Attiva i framework CSS per avere le loro classi disponibili nell'editor Gutenberg."
 
-#: admin/studioimmens.php:7
-msgid "Who is Studio Immens"
-msgstr "Chi è Studio Immens"
+msgid "Enable"
+msgstr "Abilita"
 
-#: admin/studioimmens.php:20
-msgid ""
-"with a simple, effective and replicable system. And accompany you step by "
-"step with human, real and professional assistance."
-msgstr ""
-"con un sistema semplice, efficace e replicabile. E ti accompagniamo passo "
-"dopo passo con un'assistenza umana, reale e professionale."
+msgid "Display in editor"
+msgstr "Mostra nell'editor"
 
-#: admin/admin-ui.php:16
-msgid "Without dot (e.g. \"my-class\")"
-msgstr "Senza punto (ad esempio \"my-class\")"
+msgid "Display in admin"
+msgstr "Mostra in admin"
 
-#: admin/admin-ui.php:68
-msgid "Your CSS Classes"
-msgstr "Le tue classi CSS"
+msgid "Tailwind Configuration"
+msgstr "Configurazione Tailwind"
+
+msgid "tailwind.config object in JSON format."
+msgstr "Oggetto tailwind.config in formato JSON."
+
+msgid "Backup & Tools"
+msgstr "Backup e Strumenti"
+
+msgid "Export Data (JSON)"
+msgstr "Esporta Dati (JSON)"
+
+msgid "Import Data"
+msgstr "Importa Dati"
+
+msgid "Upload a JSON file exported from another site."
+msgstr "Carica un file JSON esportato da un altro sito."
+
+msgid "Upload & Import JSON"
+msgstr "Carica e Importa JSON"
+
+msgid "Reset Settings"
+msgstr "Resetta Impostazioni"
+
+msgid "Are you sure you want to reset all settings? This action cannot be undone."
+msgstr "Sei sicuro di voler resettare tutte le impostazioni? Questa azione non può essere annullata."
+
+msgid "Delete all custom classes, settings, and Tailwind configuration."
+msgstr "Elimina tutte le classi personalizzate, le impostazioni e la configurazione Tailwind."
+
+msgid "Reset All Settings"
+msgstr "Resetta Tutte le Impostazioni"
+
+msgid "Save Settings"
+msgstr "Salva Impostazioni"
+
+msgid "Create and manage your custom CSS classes for Gutenberg."
+msgstr "Crea e gestisci le tue classi CSS personalizzate per Gutenberg."
+
+msgid "All"
+msgstr "Totali"
+
+msgid "With :hover"
+msgstr "Con :hover"
+
+msgid "With :focus"
+msgstr "Con :focus"
+
+msgid "Base only"
+msgstr "Solo base"
+
+msgid "New CSS Class"
+msgstr "Nuova Classe CSS"
+
+msgid "Search class..."
+msgstr "Cerca classe..."
+
+msgid "All packs"
+msgstr "Tutti i pack"
+
+msgid "No pack"
+msgstr "Senza pack"
+
+msgid "Preview:"
+msgstr "Anteprima:"
+
+msgid "Base"
+msgstr "Base"
+
+msgid ":hover"
+msgstr ":hover"
+
+msgid ":focus"
+msgstr ":focus"
+
+msgid "Loading classes..."
+msgstr "Caricamento classi..."
+
+msgid "Class Name"
+msgstr "Nome Classe"
+
+msgid "e.g. my-custom-class"
+msgstr "es. mia-classe-personalizzata"
+
+msgid "Without the dot (e.g. \"my-class\")"
+msgstr "Senza punto (es. \"mia-classe\")"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid "Brief description of the class (e.g. \"Centers content\")"
+msgstr "Breve descrizione della classe (es. \"Centra il contenuto\")"
+
+msgid "Max 80 characters. Appears below the class name."
+msgstr "Max 80 caratteri. Appare sotto il nome della classe."
+
+msgid "CSS Code"
+msgstr "Codice CSS"
+
+msgid "color: red; font-size: 18px;"
+msgstr "color: red; font-size: 18px;"
+
+msgid "Optional. CSS applied on mouse hover."
+msgstr "Opzionale. CSS applicato al passaggio del mouse."
+
+msgid "Optional. CSS applied when the element receives focus."
+msgstr "Opzionale. CSS applicato quando l'elemento riceve il focus."
+
+msgid "Test Class"
+msgstr "Testa Classe"
+
+msgid "Save Class"
+msgstr "Salva Classe"
+
+msgid "Cancel"
+msgstr "Annulla"
+
+msgid "ClassyBlocks - Packs"
+msgstr "ClassyBlocks - Pack"
+
+msgid "Import, create, export and delete CSS class packs."
+msgstr "Importa, crea, esporta ed elimina pack di classi CSS."
+
+msgid "Import Pack"
+msgstr "Importa Pack"
+
+msgid "Create Pack"
+msgstr "Crea Pack"
+
+msgid "Export All"
+msgstr "Esporta Tutto"
+
+msgid "No packs imported. Preset packs are loaded automatically."
+msgstr "Nessun pack importato. I pack preset vengono caricati automaticamente."
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Author"
+msgstr "Autore"
+
+msgid "Version"
+msgstr "Versione"
+
+msgid "Classes"
+msgstr "Classi"
+
+msgid "Imported on"
+msgstr "Importato il"
+
+msgid "Actions"
+msgstr "Azioni"
+
+msgid "Export"
+msgstr "Esporta"
+
+msgid "What are Packs?"
+msgstr "Cosa sono i Pack?"
+
+msgid "Packs are collections of CSS classes exportable as JSON files. Import packs created by others, export your classes to share between sites, or create new packs from existing classes."
+msgstr "I pack sono collezioni di classi CSS esportabili come file JSON. Puoi importare pack creati da altri, esportare le tue classi per condividerle tra siti, o creare nuovi pack dalle classi esistenti."
+
+msgid "Create New Pack"
+msgstr "Crea Nuovo Pack"
+
+msgid "Pack Name"
+msgstr "Nome Pack"
+
+msgid "e.g. My Custom Pack"
+msgstr "es. My Custom Pack"
+
+msgid "Slug"
+msgstr "Slug"
+
+msgid "my-custom-pack"
+msgstr "my-custom-pack"
+
+msgid "Unique identifier (letters, numbers and hyphens only)."
+msgstr "Identificatore univoco (solo lettere, numeri e trattini)."
+
+msgid "Select classes to include"
+msgstr "Seleziona classi da includere"
+
+msgid "Create Pack"
+msgstr "Crea Pack"
+
+msgid "Discover Studio Immens plugins"
+msgstr "Scopri i plugin Studio Immens"
+
+msgid "Modular tools to empower your WordPress."
+msgstr "Strumenti modulari per potenziare il tuo WordPress."
+
+msgid "Add custom CSS classes to Gutenberg blocks with live preview. Supports Bootstrap, Tailwind, Bulma and other CSS frameworks."
+msgstr "Aggiungi classi CSS personalizzate ai blocchi Gutenberg con anteprima live. Supporta Bootstrap, Tailwind, Bulma e altri framework CSS."
+
+msgid "Official site"
+msgstr "Sito ufficiale"
+
+msgid "AI-ready universal tool for professionals. Optimize your site for Large Language Models (LLM) and become the authoritative source for ChatGPT, Claude, Gemini and Perplexity."
+msgstr "Strumento AI-ready universale per professionisti. Ottimizza il tuo sito per i Large Language Model (LLM) e diventa la fonte autorevole per ChatGPT, Claude, Gemini e Perplexity."
+
+msgid "Advanced AIO SEO tool for keyword research on search engines and AI, with editorial planner and real-time competitive analysis."
+msgstr "Strumento SEO AIO avanzato per la ricerca keyword su motori di ricerca e AI, con pianificatore editoriale e analisi competitiva in tempo reale."
+
+msgid "Need help?"
+msgstr "Hai bisogno di aiuto?"
+
+msgid "Need help with ClassyBlocks? Check the documentation or contact us."
+msgstr "Hai bisogno di aiuto con ClassyBlocks? Consulta la documentazione o contattaci."
+
+msgid "Documentation"
+msgstr "Documentazione"
+
+msgid "All Studio Immens plugins are developed with professional standards and regularly updated."
+msgstr "Tutti i plugin Studio Immens sono sviluppati con standard professionali e aggiornati regolarmente."
+
+msgid "Made with passion by Studio Immens."
+msgstr "Sviluppato con passione da Studio Immens."
+
+msgid "Duplicate"
+msgstr "Duplica"
+
+msgid "Class duplicated as"
+msgstr "Classe duplicata come"
+
+msgid "Class deleted"
+msgstr "Classe eliminata"
+
+msgid "Class created!"
+msgstr "Classe creata!"
+
+msgid "Class updated!"
+msgstr "Classe aggiornata!"
+
+msgid "Delete this class?"
+msgstr "Eliminare questa classe?"
+
+msgid "Connection error"
+msgstr "Errore di connessione"
+
+msgid "PRO animations bring your classes to life. Discover them!"
+msgstr "Le animazioni PRO danno vita alle tue classi. Scoprile!"
+
+msgid "Edit CSS Class"
+msgstr "Modifica Classe CSS"
+
+msgid "Import error"
+msgstr "Errore importazione"
+
+msgid "Export error"
+msgstr "Errore esportazione"
+
+msgid "Delete this pack? All classes belonging to this pack will be permanently deleted."
+msgstr "Eliminare questo pack? Tutte le classi appartenenti a questo pack verranno eliminate definitivamente."
+
+msgid "Delete error"
+msgstr "Errore eliminazione"
+
+msgid "Create pack error"
+msgstr "Errore creazione pack"
+
+msgid "No classes available."
+msgstr "Nessuna classe disponibile."
+
+msgid "already in a pack"
+msgstr "già in un pack"
+
+msgid "Fill in all fields."
+msgstr "Compila tutti i campi."
+
+msgid "Select at least one class."
+msgstr "Seleziona almeno una classe."
+
+msgid "Animations"
+msgstr "Animazioni"
+
+msgid "total classes"
+msgstr "classi totali"
+
+msgid "Scroll-driven animations (Fade, Slide, Zoom, Float, Bounce, Flip, Blur, Scale) are available in"
+msgstr "Le animazioni scroll-driven (Fade, Slide, Zoom, Float, Bounce, Flip, Blur, Scale) sono disponibili in"
+
+msgid "ClassyBlocks Pro"
+msgstr "ClassyBlocks Pro"

@@ -1,16 +1,16 @@
 <?php
 /*
-Plugin Name: Studio Immens CSS Classes
-Plugin URI: https://studioimmens.com/css-classes
+Plugin Name: ClassyBlocks
+Plugin URI: https://studioimmens.com/classyblocks-pro/
 Description: Add custom CSS classes to Gutenberg blocks with live preview.
-Version: 2.0.0
+Version: 2.2.0
 Requires at least:  5.8  
 Tested up to:       6.8  
 Requires PHP:       7.4
 Author: Studio Immens
 Text Domain: studio-immens-css-classes
 Domain Path: /languages
-License: GPL v2 or later
+License: GPLv2 or later
 */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -22,7 +22,7 @@ add_filter( 'wp_consent_api_registered_' . plugin_basename( __FILE__ ), '__retur
 // === FILE PRINCIPALE: studio-immens-css-classes.php ===
 define('SI_CSS_CLASS_PATH', plugin_dir_path(__FILE__));
 define('SI_CSS_CLASS_URL', plugin_dir_url(__FILE__));
-define('SI_CSS_CLASS_VERSION', '2.0.0');
+define('SI_CSS_CLASS_VERSION', '2.2.0');
 
 
 // Frameworks CSS versions
@@ -36,10 +36,16 @@ define('SI_CSS_SEMANTIC_VERSION', '2.5.0');
 define('SI_CSS_FOUNDATION_VERSION', '6.8.1');
 define('SI_CSS_TAILWIND_VERSION', '3.4.1');
 
+require_once SI_CSS_CLASS_PATH . 'includes/class-pack-manager.php';
+
 class StudioImmens_CSS_Classes {
     private static $block_css = '';
+    public $pack_manager = null;
 
     public function __construct() {
+        add_action('init', function() {
+            load_plugin_textdomain('studio-immens-css-classes', false, dirname(plugin_basename(__FILE__)) . '/languages');
+        });
         // Verifica compatibilità minima con WordPress
         if (version_compare(get_bloginfo('version'), '5.0', '<')) {
             add_action('admin_notices', [$this, 'sicc_compatibility_notice']);
@@ -57,6 +63,7 @@ class StudioImmens_CSS_Classes {
         // Admin
         add_action('admin_menu', [$this, 'sicc_admin_menu']);
         add_action('admin_enqueue_scripts', [$this, 'sicc_admin_scripts']);
+        add_action('admin_head', [$this, 'sicc_admin_menu_icon_style']);
         
         // Editor
         add_action('init', [$this, 'sicc_register_blocks_server_side']);
@@ -78,10 +85,14 @@ class StudioImmens_CSS_Classes {
         // Gestione Export/Import/Reset
         add_action('admin_init', [$this, 'sicc_handle_tools_actions']);
 
-        // Logga errori AJAX
-        add_filter('wp_php_error_message', function($message) {
-            return $message;
-        }, 10, 2);
+        // Pack Manager
+        $this->pack_manager = new SICC_Pack_Manager();
+        add_action('wp_ajax_sicc_get_packs', [$this, 'sicc_ajax_get_packs']);
+        add_action('wp_ajax_sicc_import_pack', [$this, 'sicc_ajax_import_pack']);
+        add_action('wp_ajax_sicc_export_pack', [$this, 'sicc_ajax_export_pack']);
+        add_action('wp_ajax_sicc_create_pack', [$this, 'sicc_ajax_create_pack']);
+        add_action('wp_ajax_sicc_delete_pack', [$this, 'sicc_ajax_delete_pack']);
+        add_action('sicc_regenerate_css', [$this, 'sicc_css_constructor']);
 
         add_action('admin_init', [$this, 'sicc_css_register_settings']);
 
@@ -178,17 +189,19 @@ class StudioImmens_CSS_Classes {
         // Tailwind CDN
         if (isset($cssSettings['enable_tailwind']) && $cssSettings['enable_tailwind'] == '1') {
             if (is_admin() || (!is_admin() && isset($cssSettings['disp_frontend_tailwind']) && $cssSettings['disp_frontend_tailwind'] == '1')) {
-                wp_enqueue_script(
-                    'sicc-tailwind-cdn',
-                    'https://cdn.tailwindcss.com',
-                    array(),
-                    SI_CSS_TAILWIND_VERSION,
-                    false
-                );
-                // Tailwind Config opzionale
-                $tw_config = get_option('sicc_css_tailwind_config', '');
-                if ($tw_config) {
-                    wp_add_inline_script('sicc-tailwind-cdn', 'tailwind.config = ' . $tw_config, 'before');
+                $tw_asset = SI_CSS_CLASS_URL . 'assets/tailwind-cdn.js';
+                if (file_exists(SI_CSS_CLASS_PATH . 'assets/tailwind-cdn.js')) {
+                    wp_enqueue_script(
+                        'sicc-tailwind',
+                        $tw_asset,
+                        array(),
+                        SI_CSS_CLASS_VERSION,
+                        false
+                    );
+                    $tw_config = get_option('sicc_css_tailwind_config', '');
+                    if ($tw_config) {
+                        wp_add_inline_script('sicc-tailwind', 'tailwind.config = ' . $tw_config, 'before');
+                    }
                 }
             }
         }
@@ -200,18 +213,18 @@ class StudioImmens_CSS_Classes {
     }
 
     public function sicc_sanitize_tailwind_config($config) {
-        // Rimuove tag HTML/PHP ma mantiene la struttura JSON/JS
         $config = wp_strip_all_tags($config);
-        
-        // Ulteriore pulizia per prevenire injection di script comuni in JS objects
         $config = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $config);
         $config = preg_replace('/javascript:/i', "", $config);
         $config = preg_replace('/onclick|onerror|onload|onmouseover/i', "", $config);
 
-        // Validazione base JSON se non è vuoto
         if (!empty($config)) {
-            $test = json_decode($config);
-            // Se non è JSON valido, potrebbe essere un oggetto JS letterale accettato da Tailwind Play CDN
+            $decoded = json_decode($config, true);
+            if ($decoded !== null && is_array($decoded)) {
+                $config = wp_json_encode($decoded);
+            } else {
+                $config = str_replace(['</script>', '<script'], '', $config);
+            }
         }
         return trim($config);
     }
@@ -238,7 +251,7 @@ class StudioImmens_CSS_Classes {
 
     public function sicc_output_block_css() {
         if (!empty(self::$block_css)) {
-            echo '<style id="sicc-custom-blocks-css">' . self::$block_css . '</style>';
+            echo '<style id="sicc-custom-blocks-css">' . str_replace( ['</style>', '<style', '\\'], '', self::$block_css ) . '</style>';
         }
     }
 
@@ -283,8 +296,14 @@ class StudioImmens_CSS_Classes {
             if (isset($value['name']) && isset($value['css'])) {
               $css_output .= '.'.$value['name'].'{'.$value['css'].'} ';
             }
+            if (isset($value['name']) && isset($value['visited'])) {
+              $css_output .= '.'.$value['name'].':visited {'.$value['visited'].'} ';
+            }
             if (isset($value['name']) && isset($value['hover'])) {
               $css_output .= '.'.$value['name'].':hover {'.$value['hover'].'} ';
+            }
+            if (isset($value['name']) && isset($value['active'])) {
+              $css_output .= '.'.$value['name'].':active {'.$value['active'].'} ';
             }
             if (isset($value['name']) && isset($value['focus'])) {
               $css_output .= '.'.$value['name'].':focus {'.$value['focus'].'} ';
@@ -317,7 +336,7 @@ class StudioImmens_CSS_Classes {
     public function sicc_compatibility_notice() {
         echo '<div class="error"><p>';
         printf(/* translators: CSS Classes requires WordPress 5.0 or higher */
-            esc_html__('Studio Immens CSS Classes requires WordPress 5.0 or higher. Your version is %s.', 'studio-immens-css-classes'),
+            esc_html__('ClassyBlocks requires WordPress 5.0 or higher. Your version is %s.', 'studio-immens-css-classes'),
             esc_attr(get_bloginfo('version'))
         );
         echo '</p></div>';
@@ -326,18 +345,18 @@ class StudioImmens_CSS_Classes {
     // Menu admin
     public function sicc_admin_menu() {
         add_menu_page(
-            esc_html__('CSS Classes', 'studio-immens-css-classes'),
-            esc_html__('CSS Classes', 'studio-immens-css-classes'),
+            esc_html__('ClassyBlocks', 'studio-immens-css-classes'),
+            esc_html__('ClassyBlocks', 'studio-immens-css-classes'),
             'manage_options',
             'studioimmens-css',
             [$this, 'sicc_admin_page'],
-            'dashicons-art',
+            SI_CSS_CLASS_URL . 'assets/classyblocks-icon-20.png',
             80
         );
         add_submenu_page(
             'studioimmens-css',
-            esc_html__('Assistenza', 'studio-immens-css-classes'),
-            esc_html__('Assistenza', 'studio-immens-css-classes'),
+            esc_html__('Resources', 'studio-immens-css-classes'),
+            esc_html__('Resources', 'studio-immens-css-classes'),
             'manage_options',
             'studioimmens-assistenza',
             [$this, 'sicc_assistenza_page']
@@ -350,6 +369,14 @@ class StudioImmens_CSS_Classes {
             'studioimmens-css-settings',
             [$this, 'sicc_studioimmens_settings']
         );
+         add_submenu_page(
+            'studioimmens-css',
+            esc_html__('Pack', 'studio-immens-css-classes'),
+            esc_html__('Pack', 'studio-immens-css-classes'),
+            'manage_options',
+            'studioimmens-css-packs',
+            [$this, 'sicc_packs_page']
+         );
 
     }
 
@@ -366,9 +393,41 @@ class StudioImmens_CSS_Classes {
         include SI_CSS_CLASS_PATH . 'admin/settings.php';
     }
 
+    public function sicc_packs_page() {
+        include SI_CSS_CLASS_PATH . 'admin/packs-page.php';
+    }
+
+    // Menu icon hover effect
+    public function sicc_admin_menu_icon_style() {
+        echo '<style>
+            li#toplevel_page_studioimmens-css .wp-menu-image {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                overflow: hidden !important;
+            }
+            li#toplevel_page_studioimmens-css .wp-menu-image img {
+                max-width: 20px !important;
+                max-height: 20px !important;
+                width: 20px !important;
+                height: auto !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: block !important;
+                opacity: 0.8;
+                transition: all 0.2s ease-in-out;
+            }
+            li#toplevel_page_studioimmens-css:hover .wp-menu-image img,
+            li#toplevel_page_studioimmens-css.wp-has-current-submenu .wp-menu-image img {
+                opacity: 1;
+                scale: 1.1;
+            }
+        </style>';
+    }
+
     // Script admin
     public function sicc_admin_scripts($hook) {
-        if ( $hook === 'toplevel_page_studioimmens-css'|| $hook === 'css-classes_page_studioimmens-css-settings'|| $hook === 'css-classes_page_studioimmens-assistenza') {
+        if ( $hook === 'toplevel_page_studioimmens-css'|| $hook === 'classyblocks_page_studioimmens-css-settings'|| $hook === 'classyblocks_page_studioimmens-assistenza' || $hook === 'classyblocks_page_studioimmens-css-packs') {
 
             $cssSettings = $this::sicc_css_all_settings();
 
@@ -390,6 +449,33 @@ class StudioImmens_CSS_Classes {
                 'emptyFields' => esc_html__('Please fill in all required fields.', 'studio-immens-css-classes'),
                 'saveError' => esc_html__('Error saving class.', 'studio-immens-css-classes'),
                 'noClasses' => esc_html__('No classes found.', 'studio-immens-css-classes'),
+                'badgeBase' => esc_html__('base', 'studio-immens-css-classes'),
+                'badgeHo' => esc_html__('ho', 'studio-immens-css-classes'),
+                'badgeAc' => esc_html__('ac', 'studio-immens-css-classes'),
+                'badgeFo' => esc_html__('fo', 'studio-immens-css-classes'),
+                'badgeVi' => esc_html__('vi', 'studio-immens-css-classes'),
+                'duplicate' => esc_html__('Duplicate', 'studio-immens-css-classes'),
+                'loading' => esc_html__('Loading classes...', 'studio-immens-css-classes'),
+                'classDeleted' => esc_html__('Class deleted', 'studio-immens-css-classes'),
+                'classCreated' => esc_html__('Class created!', 'studio-immens-css-classes'),
+                'classUpdated' => esc_html__('Class updated!', 'studio-immens-css-classes'),
+                'duplicatedAs' => esc_html__('Class duplicated as', 'studio-immens-css-classes'),
+                'deleteConfirm' => esc_html__('Delete this class?', 'studio-immens-css-classes'),
+                'connectionError' => esc_html__('Connection error', 'studio-immens-css-classes'),
+                'proNudge' => esc_html__('PRO animations bring your classes to life. Discover them!', 'studio-immens-css-classes'),
+                'newClass' => esc_html__('New CSS Class', 'studio-immens-css-classes'),
+                'editClass' => esc_html__('Edit CSS Class', 'studio-immens-css-classes'),
+                'importError' => esc_html__('Import error', 'studio-immens-css-classes'),
+                'exportError' => esc_html__('Export error', 'studio-immens-css-classes'),
+                'deletePackConfirm' => esc_html__('Delete this pack? All classes belonging to this pack will be permanently deleted.', 'studio-immens-css-classes'),
+                'deletePackError' => esc_html__('Delete error', 'studio-immens-css-classes'),
+                'createPackError' => esc_html__('Create pack error', 'studio-immens-css-classes'),
+                'noClassesAvailable' => esc_html__('No classes available.', 'studio-immens-css-classes'),
+                'alreadyInPack' => esc_html__('already in a pack', 'studio-immens-css-classes'),
+                'fillFields' => esc_html__('Fill in all fields.', 'studio-immens-css-classes'),
+                'selectClasses' => esc_html__('Select at least one class.', 'studio-immens-css-classes'),
+                'saveCount' => absint(get_option('sicc_css_save_count', 0)),
+                'proUrl' => 'https://studioimmens.com/classyblocks-pro/',
             ]);
 
             wp_enqueue_style('sicc-css-admin-edit', SI_CSS_CLASS_UPLOAD_URL . 'si-css.css', array(), SI_CSS_CLASS_VERSION );
@@ -465,6 +551,9 @@ class StudioImmens_CSS_Classes {
 
 
     public function sicc_ajax_save_class() {
+        if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
+            wp_send_json_error( 'Invalid request method.', 405 );
+        }
         check_ajax_referer('sicc_css_nonce', 'security');
         
         if (!current_user_can('manage_options')) {
@@ -482,16 +571,24 @@ class StudioImmens_CSS_Classes {
         }
         
         $new_class = array(
-            'id' => uniqid(),
+            'id' => wp_generate_uuid4(),
             'name' => (!empty( $_POST['name'] )) ? sanitize_html_class(wp_unslash($_POST['name'])) : '',
             'css' =>  (!empty( $_POST['css'] )) ? $this->sicc_sanitize_css(wp_unslash($_POST['css'])) : '',
             'hover' =>  (!empty( $_POST['hover'] )) ? $this->sicc_sanitize_css(wp_unslash($_POST['hover'])) : '',
+            'active' =>  (!empty( $_POST['active'] )) ? $this->sicc_sanitize_css(wp_unslash($_POST['active'])) : '',
             'focus' =>  (!empty( $_POST['focus'] )) ? $this->sicc_sanitize_css(wp_unslash($_POST['focus'])) : '',
+            'visited' =>  (!empty( $_POST['visited'] )) ? $this->sicc_sanitize_css(wp_unslash($_POST['visited'])) : '',
+            'description' =>  (!empty( $_POST['description'] )) ? sanitize_text_field(wp_unslash($_POST['description'])) : '',
         );
         
         $classes[] = $new_class;
         update_option('sicc_css_classes', $classes);
         $this->sicc_css_constructor(); // Rigenera il file CSS
+
+        // Pro nudge counter
+        $save_count = absint(get_option('sicc_css_save_count', 0)) + 1;
+        update_option('sicc_css_save_count', $save_count);
+
         wp_send_json_success($new_class);
     }
 
@@ -504,17 +601,20 @@ class StudioImmens_CSS_Classes {
 
     // Sanitizzazione CSS avanzata
     private function sicc_sanitize_css($css) {
-        // Rimuove tag HTML e PHP
         $css = wp_strip_all_tags($css);
-        // Rimuove blocchi script
         $css = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $css);
-        // Rimuove espressioni pericolose (expression(), behavior:, ecc.)
         $css = preg_replace('/expression\s*\(|behavior\s*:|url\s*\(\s*["\']?\s*javascript:/i', '', $css);
+        $css = preg_replace('/@import\s+/i', '', $css);
+        $css = preg_replace('/<\/?style[^>]*>/i', '', $css);
+        $css = preg_replace('/url\s*\(\s*["\']?[^"\')]+["\']?\s*\)/i', '', $css);
         return trim($css);
     }
 
     // Handler AJAX per update
     public function sicc_ajax_edit_class() {
+        if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
+            wp_send_json_error( 'Invalid request method.', 405 );
+        }
         check_ajax_referer('sicc_css_nonce', 'security');
         
         if (!current_user_can('manage_options')) {
@@ -531,29 +631,46 @@ class StudioImmens_CSS_Classes {
 
         foreach ($classes as $key => $value) {
             if (isset($value['id']) && $value['id'] == $id) {
+                $pack_slug = isset($value['pack_slug']) ? $value['pack_slug'] : '';
                 $classes[$key] = array(
                     'id' => $id,
                     'name' => (!empty( $_POST['name'] )) ? sanitize_html_class(wp_unslash($_POST['name'])) : '',
                     'css' =>  (!empty( $_POST['css'] )) ? $this->sicc_sanitize_css(wp_unslash($_POST['css'])) : '',
                     'hover' =>  (!empty( $_POST['hover'] )) ? $this->sicc_sanitize_css(wp_unslash($_POST['hover'])) : '',
+                    'active' =>  (!empty( $_POST['active'] )) ? $this->sicc_sanitize_css(wp_unslash($_POST['active'])) : '',
                     'focus' =>  (!empty( $_POST['focus'] )) ? $this->sicc_sanitize_css(wp_unslash($_POST['focus'])) : '',
+                    'visited' =>  (!empty( $_POST['visited'] )) ? $this->sicc_sanitize_css(wp_unslash($_POST['visited'])) : '',
+                    'description' =>  (!empty( $_POST['description'] )) ? sanitize_text_field(wp_unslash($_POST['description'])) : '',
                 );
+                if ($pack_slug) {
+                    $classes[$key]['pack_slug'] = $pack_slug;
+                }
             }
         }
         
         update_option('sicc_css_classes', $classes);
         $this->sicc_css_constructor(); // Rigenera il file CSS
+
+        $save_count = absint(get_option('sicc_css_save_count', 0)) + 1;
+        update_option('sicc_css_save_count', $save_count);
+
         wp_send_json_success($classes);
     }
     
     // Handler AJAX per ottenere le classi
     public function sicc_ajax_get_classes() {
+        if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
+            wp_send_json_error( 'Invalid request method.', 405 );
+        }
         check_ajax_referer('sicc_css_nonce', 'security');
         wp_send_json_success(get_option('sicc_css_classes', []));
     }
     
     // Handler AJAX per eliminare
     public function sicc_ajax_delete_class() {
+        if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
+            wp_send_json_error( 'Invalid request method.', 405 );
+        }
         check_ajax_referer('sicc_css_nonce', 'security');
         
         if (!current_user_can('manage_options') || empty($_POST['id'])) {
@@ -569,6 +686,148 @@ class StudioImmens_CSS_Classes {
         
         update_option('sicc_css_classes', array_values($updated));
         $this->sicc_css_constructor(); // Rigenera il file CSS
+        wp_send_json_success();
+    }
+
+    // ─── AJAX: Get all packs ───
+    public function sicc_ajax_get_packs() {
+        if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
+            wp_send_json_error( 'Invalid request method.', 405 );
+        }
+        check_ajax_referer('sicc_css_nonce', 'security');
+        if ( ! current_user_can('manage_options') ) {
+            wp_send_json_error('Unauthorized', 403);
+        }
+        $packs = $this->pack_manager->get_all();
+        wp_send_json_success( $packs );
+    }
+
+    // ─── AJAX: Import pack ───
+    public function sicc_ajax_import_pack() {
+        if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
+            wp_send_json_error( 'Invalid request method.', 405 );
+        }
+        check_ajax_referer('sicc_css_nonce', 'security');
+        if ( ! current_user_can('manage_options') ) {
+            wp_send_json_error('Unauthorized', 403);
+        }
+
+        if ( empty( $_FILES['pack_file'] ) ) {
+            wp_send_json_error( 'No file uploaded.' );
+        }
+
+        $file = $_FILES['pack_file'];
+        if ( $file['error'] !== UPLOAD_ERR_OK ) {
+            wp_send_json_error( 'Upload error.' );
+        }
+
+        $file_ext = strtolower( pathinfo( $file['name'], PATHINFO_EXTENSION ) );
+        if ( $file_ext !== 'json' ) {
+            wp_send_json_error( 'Only JSON files are allowed.' );
+        }
+
+        $max_size = 2 * 1024 * 1024;
+        if ( $file['size'] > $max_size ) {
+            wp_send_json_error( 'File exceeds maximum size of 2MB.' );
+        }
+
+        if ( function_exists( 'finfo_open' ) ) {
+            $finfo = finfo_open( FILEINFO_MIME_TYPE );
+            $mime  = finfo_file( $finfo, $file['tmp_name'] );
+            finfo_close( $finfo );
+            if ( ! in_array( $mime, array( 'application/json', 'text/plain', 'application/octet-stream' ) ) ) {
+                wp_send_json_error( 'Invalid file type.' );
+            }
+        }
+
+        $content = file_get_contents( $file['tmp_name'] );
+        $data = json_decode( $content, true );
+
+        if ( ! $data || ! isset( $data['classes'] ) ) {
+            wp_send_json_error( 'Invalid pack file format.' );
+        }
+
+        if ( ! isset( $data['slug'] ) || ! isset( $data['name'] ) ) {
+            $path_parts = pathinfo( $file['name'] );
+            $data['slug'] = sanitize_title( $path_parts['filename'] );
+            $data['name'] = $path_parts['filename'];
+        }
+
+        $result = $this->pack_manager->import_pack( $data );
+        $this->sicc_css_constructor();
+        wp_send_json_success( $result );
+    }
+
+    // ─── AJAX: Export pack ───
+    public function sicc_ajax_export_pack() {
+        if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
+            wp_send_json_error( 'Invalid request method.', 405 );
+        }
+        check_ajax_referer('sicc_css_nonce', 'security');
+        if ( ! current_user_can('manage_options') ) {
+            wp_send_json_error('Unauthorized', 403);
+        }
+
+        $slug = isset( $_POST['slug'] ) ? sanitize_title( $_POST['slug'] ) : '';
+
+        if ( $slug === 'all' ) {
+            $all_packs = $this->pack_manager->export_all();
+            wp_send_json_success( $all_packs );
+            return;
+        }
+
+        $pack = $this->pack_manager->export_pack( $slug );
+        if ( ! $pack ) {
+            wp_send_json_error( 'Pack not found.' );
+        }
+        wp_send_json_success( $pack );
+    }
+
+    // ─── AJAX: Create pack ───
+    public function sicc_ajax_create_pack() {
+        if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
+            wp_send_json_error( 'Invalid request method.', 405 );
+        }
+        check_ajax_referer('sicc_css_nonce', 'security');
+        if ( ! current_user_can('manage_options') ) {
+            wp_send_json_error('Unauthorized', 403);
+        }
+
+        $name = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] ) : '';
+        $slug = isset( $_POST['slug'] ) ? sanitize_title( $_POST['slug'] ) : '';
+        $class_ids = isset( $_POST['class_ids'] ) ? array_map( 'sanitize_text_field', (array) $_POST['class_ids'] ) : [];
+
+        if ( empty( $name ) || empty( $slug ) || empty( $class_ids ) ) {
+            wp_send_json_error( 'Missing required fields.' );
+        }
+
+        $result = $this->pack_manager->create_pack( $name, $slug, $class_ids );
+        if ( ! $result ) {
+            wp_send_json_error( 'Could not create pack. Slug may already exist.' );
+        }
+        $this->sicc_css_constructor();
+        wp_send_json_success( [ 'slug' => $result ] );
+    }
+
+    // ─── AJAX: Delete pack ───
+    public function sicc_ajax_delete_pack() {
+        if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
+            wp_send_json_error( 'Invalid request method.', 405 );
+        }
+        check_ajax_referer('sicc_css_nonce', 'security');
+        if ( ! current_user_can('manage_options') ) {
+            wp_send_json_error('Unauthorized', 403);
+        }
+
+        $slug = isset( $_POST['slug'] ) ? sanitize_title( $_POST['slug'] ) : '';
+        if ( empty( $slug ) ) {
+            wp_send_json_error( 'Missing slug.' );
+        }
+
+        $result = $this->pack_manager->delete_pack( $slug );
+        if ( ! $result ) {
+            wp_send_json_error( 'Pack not found.' );
+        }
         wp_send_json_success();
     }
 
@@ -603,7 +862,16 @@ class StudioImmens_CSS_Classes {
             check_admin_referer('sicc_import_nonce');
 
             if (!empty($_FILES['sicc_import_file']['tmp_name'])) {
-                $file_name = $_FILES['sicc_import_file']['name'];
+                $file = $_FILES['sicc_import_file'];
+
+                if ($file['error'] !== UPLOAD_ERR_OK) {
+                    add_action('admin_notices', function() {
+                        echo '<div class="error"><p>' . esc_html__('Error: Upload failed.', 'studio-immens-css-classes') . '</p></div>';
+                    });
+                    return;
+                }
+
+                $file_name = $file['name'];
                 $file_ext  = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
 
                 if ($file_ext !== 'json') {
@@ -613,7 +881,27 @@ class StudioImmens_CSS_Classes {
                     return;
                 }
 
-                $file = $_FILES['sicc_import_file']['tmp_name'];
+                $max_size = 2 * 1024 * 1024;
+                if ($file['size'] > $max_size) {
+                    add_action('admin_notices', function() {
+                        echo '<div class="error"><p>' . esc_html__('Error: File exceeds maximum size of 2MB.', 'studio-immens-css-classes') . '</p></div>';
+                    });
+                    return;
+                }
+
+                if (function_exists('finfo_open')) {
+                    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                    $mime = finfo_file($finfo, $file['tmp_name']);
+                    finfo_close($finfo);
+                    if (!in_array($mime, array('application/json', 'text/plain', 'application/octet-stream'))) {
+                        add_action('admin_notices', function() {
+                            echo '<div class="error"><p>' . esc_html__('Error: Invalid file type.', 'studio-immens-css-classes') . '</p></div>';
+                        });
+                        return;
+                    }
+                }
+
+                $file = $file['tmp_name'];
                 $content = file_get_contents($file);
                 $data = json_decode($content, true);
 
@@ -625,7 +913,21 @@ class StudioImmens_CSS_Classes {
                 }
 
                 if ($data && isset($data['classes']) && is_array($data['classes'])) {
-                    update_option('sicc_css_classes', $data['classes']);
+                    $sanitized_classes = [];
+                    foreach ($data['classes'] as $cls) {
+                        $sanitized_classes[] = [
+                            'id'          => isset($cls['id']) ? sanitize_text_field($cls['id']) : wp_generate_uuid4(),
+                            'name'        => isset($cls['name']) ? sanitize_html_class($cls['name']) : '',
+                            'css'         => isset($cls['css']) ? $this->sicc_sanitize_css($cls['css']) : '',
+                            'hover'       => isset($cls['hover']) ? $this->sicc_sanitize_css($cls['hover']) : '',
+                            'active'      => isset($cls['active']) ? $this->sicc_sanitize_css($cls['active']) : '',
+                            'focus'       => isset($cls['focus']) ? $this->sicc_sanitize_css($cls['focus']) : '',
+                            'visited'     => isset($cls['visited']) ? $this->sicc_sanitize_css($cls['visited']) : '',
+                            'description' => isset($cls['description']) ? sanitize_text_field($cls['description']) : '',
+                            'pack_slug'   => isset($cls['pack_slug']) ? sanitize_text_field($cls['pack_slug']) : '',
+                        ];
+                    }
+                    update_option('sicc_css_classes', $sanitized_classes);
                     if (isset($data['settings']) && is_array($data['settings'])) update_option('sicc_css_settings', $data['settings']);
                     if (isset($data['tailwind_config'])) update_option('sicc_css_tailwind_config', sanitize_textarea_field($data['tailwind_config']));
                     

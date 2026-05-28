@@ -1,10 +1,10 @@
-=== Studio Immens CSS Classes ===
+=== ClassyBlocks ===
 Contributors: 		innovazioneweb
 Tags:               css, utility classes, design, frontend, custom classes  
 Requires at least:  5.8  
 Tested up to:       6.8  
 Requires PHP:       7.4  
-Stable tag:         2.0.0  
+Stable tag: 2.2.0
 License:            GPLv2 or later  
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -12,7 +12,7 @@ Create your own set of custom CSS classes, ready to use with one click, to enhan
 
 == Description ==
 
-**Studio Immens CSS Classes** is a developer-focused plugin built for speed, flexibility, and real results. Designed for agencies, freelancers, and pros who want to supercharge Gutenberg-based WordPress sites, this plugin empowers you to ditch repetitive CSS and deploy custom utility classes with zero friction.
+**ClassyBlocks** is a developer-focused plugin built for speed, flexibility, and real results. Designed for agencies, freelancers, and pros who want to supercharge Gutenberg-based WordPress sites, this plugin empowers you to ditch repetitive CSS and deploy custom utility classes with zero friction.
 
 The latest version adds seamless integration with a curated set of popular CSS frameworks—Bootstrap, Materialize, UIkit, PureCSS, Semantic UI, Spectre.css, and Bulma. Here's what you can now do in one click:
 
@@ -61,10 +61,21 @@ No. The CSS file is minimal, loads optimally, and doesn't include JavaScript.
 
 == Screenshots ==
 
-1. Admin section for creating and editing custom CSS classes.
-2. Interface for inserting custom CSS classes into blocks.
+1. Custom CSS class creation and management dashboard.
 
 == Changelog ==
+
+= 2.2.0 =
+* Tailwind CSS now bundled locally (no external CDN dependency)
+* Enhanced security: CSS sanitization, file upload validation, XSS fixes
+* Improved localization: all JavaScript strings are translatable
+* Replaced uniqid() with wp_generate_uuid4() for stronger IDs
+* Added HTTP method checks to all AJAX handlers
+* Various performance and security improvements
+
+= 2.1.0 =
+* Rebrand: Studio Immens CSS Classes → ClassyBlocks
+* Introdotto ClassyBlocks Pro: animazioni scroll-driven, Pack Manager e funzionalità premium
 
 = 1.2.1 =
 * bug fix

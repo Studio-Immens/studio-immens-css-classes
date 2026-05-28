@@ -1,8 +1,3 @@
-console.log(
-  'Studio Immens css foundation-editor is loaded',
-  typeof siCssDataFd !== 'undefined' ? siCssDataFd : 'siCssDataFd NON definito'
-);
-
 (function () {
   if (
     typeof wp === 'undefined' ||

@@ -1,8 +1,3 @@
-console.log(
-  'Studio Immens css pure-editor is loaded',
-  typeof siCssDataPr !== 'undefined' ? siCssDataPr : 'siCssDataPr NON definito'
-);
-
 (function () {
   if (
     typeof wp === 'undefined' ||
