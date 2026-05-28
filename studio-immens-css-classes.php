@@ -22,7 +22,7 @@ add_filter( 'wp_consent_api_registered_' . plugin_basename( __FILE__ ), '__retur
 // === FILE PRINCIPALE: studio-immens-css-classes.php ===
 define('SI_CSS_CLASS_PATH', plugin_dir_path(__FILE__));
 define('SI_CSS_CLASS_URL', plugin_dir_url(__FILE__));
-define('SI_CSS_CLASS_VERSION', '2.2.0');
+define('SI_CSS_CLASS_VERSION', '2.2.1');
 
 
 // Frameworks CSS versions
