@@ -2,7 +2,7 @@
 Contributors: 		innovazioneweb
 Tags:               css, utility classes, design, frontend, custom classes  
 Requires at least:  5.8  
-Tested up to:       6.8  
+Tested up to:       7.0  
 Requires PHP:       7.4  
 Stable tag: 2.2.4
 License:            GPLv2 or later  
