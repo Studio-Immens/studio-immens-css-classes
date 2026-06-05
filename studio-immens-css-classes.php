@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: ClassyBlocks
+Plugin Name: ClassyBlocks — Custom CSS Classes for Gutenberg Blocks
 Plugin URI: https://studioimmens.com/classyblocks-pro/
 Description: Add custom CSS classes to Gutenberg blocks with live preview.
 Version: 2.2.4

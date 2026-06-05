@@ -62,6 +62,11 @@ No. The CSS file is minimal, loads optimally, and doesn't include JavaScript.
 == Screenshots ==
 
 1. Custom CSS class creation and management dashboard.
+2. New CSS Class creation modal with interactive preview.
+3. Settings page with CSS framework toggles and Tailwind configuration.
+4. Pack Manager for importing, exporting, and organizing CSS class packs.
+5. Resources page showcasing other Studio Immens plugins.
+6. CSS classes grid with live preview and search functionality.
 
 == Changelog ==
 
