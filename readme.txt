@@ -1,6 +1,6 @@
-=== ClassyBlocks ===
+=== ClassyBlocks — Custom CSS Classes for Gutenberg Blocks ===
 Contributors: 		innovazioneweb
-Tags:               css, utility classes, design, frontend, custom classes  
+Tags:               css, utility classes, design, frontend, custom classes, gutenberg, block editor, css framework, bootstrap, tailwind
 Requires at least:  5.8  
 Tested up to:       7.0  
 Requires PHP:       7.4  
@@ -8,28 +8,37 @@ Stable tag: 2.2.5
 License:            GPLv2 or later  
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html  
 
-Create your own set of custom CSS classes, ready to use with one click, to enhance the design of your Gutenberg blocks.
+Create, manage, and apply custom CSS classes to Gutenberg blocks with live preview, built-in framework support, and zero performance impact.
 
 == Description ==
 
-**ClassyBlocks** is a developer-focused plugin built for speed, flexibility, and real results. Designed for agencies, freelancers, and pros who want to supercharge Gutenberg-based WordPress sites, this plugin empowers you to ditch repetitive CSS and deploy custom utility classes with zero friction.
+**ClassyBlocks** transforms how you style Gutenberg blocks. Instead of wrestling with theme CSS, writing repetitive rules, or switching back and forth between editors, you can create and apply custom CSS classes directly from the block editor — with **real-time preview** and **one-click application**.
 
-The latest version adds seamless integration with a curated set of popular CSS frameworks—Bootstrap, Materialize, UIkit, PureCSS, Semantic UI, Spectre.css, and Bulma. Here's what you can now do in one click:
+Whether you're building a simple landing page or a complex multi-site network, ClassyBlocks keeps your workflow fast, consistent, and maintainable.
 
-• Select your preferred CSS framework right from the editor.
-• Automatically access the full list of utility classes from that framework.
-• Preview how classes look in real time, directly inside Gutenberg blocks.
-• Apply classes instantly—no manual coding, no guesswork.
+### Key Features
 
-All of this while maintaining razor‑sharp performance: a tiny, clean stylesheet and no unnecessary JavaScript overhead, keeping your site lean and lightning fast.
+* **Custom CSS Class Manager** — Create your own library of CSS classes with full support for `:hover`, `:focus`, `:active`, and `:visited` pseudo-states. Name, describe, and organize each class with its own CSS rules.
+* **9 Built-in CSS Frameworks** — Bootstrap 5.3, Materialize, Pure CSS, Bulma, UIkit, Spectre, Semantic UI, Foundation, and Tailwind CSS. Toggle each framework on/off independently for the editor and the frontend.
+* **Live Preview in Gutenberg** — See exactly how each class looks in real time, directly inside the block editor. No more guesswork or page reloads.
+* **One-Click Application** — Apply any custom or framework class to a block with a single click. No typing class names manually.
+* **Pack Manager** — Export, import, and share complete sets of CSS classes as packs. Perfect for agencies managing multiple sites or teams collaborating on design systems.
+* **Interactive Preview Mode** — Test your classes interactively with Auto and Interactive modes that cycle through pseudo-states.
 
-### What the plugin includes:
+### What you can do
 
-- Easily build your own CSS classes
-- Add or remove classes from blocks with one click
-- Zero performance impact (very light and clean CSS file)
+* **Design faster** — Build a reusable library of utility classes and apply them across your entire site in seconds.
+* **Stay organized** — Group classes into packs by project, component, or design system. Search, filter, and manage everything from one dashboard.
+* **Work with any theme** — ClassyBlocks works with every WordPress theme. It integrates especially well with Blocksy, GeneratePress, Astra, and other modern block-ready themes.
+* **Keep performance tight** — The plugin generates a minimal, optimized stylesheet with zero JavaScript overhead on the frontend. No bloat, no slowdowns.
 
-Perfect for those who use a modular approach to layout construction and want to **avoid writing custom rules** in the theme or block CSS every time.
+### Perfect for
+
+* **Developers and agencies** building client sites with consistent design systems.
+* **Freelancers** who want to speed up their Gutenberg workflow without custom coding every time.
+* **Site owners** who want more design flexibility without installing a page builder.
+
+**ClassyBlocks** — the smart way to manage CSS classes in WordPress.
 
 == How it works ==
 
