@@ -4,7 +4,7 @@ Tags:               css, utility classes, design, frontend, custom classes, gute
 Requires at least:  5.8  
 Tested up to:       7.0  
 Requires PHP:       7.4  
-Stable tag: 2.2.5
+Stable tag: 2.3.0
 License:            GPLv2 or later  
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -78,6 +78,12 @@ No. The CSS file is minimal, loads optimally, and doesn't include JavaScript.
 6. CSS classes grid with live preview and search functionality.
 
 == Changelog ==
+
+= 2.3.0 =
+* Added WordPress.org SVN deploy automation via GitHub Actions.
+* Updated screenshots and WordPress.org assets.
+* Improved readme.txt description and formatting.
+* Fixed Tested up to version consistency.
 
 = 2.2.0 =
 * Tailwind CSS now bundled locally (no external CDN dependency)
