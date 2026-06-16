@@ -108,10 +108,8 @@
         );
       };
 
-      var panelTitle = siCssData.labels.title || 'CSS Classes';
-      if (typeof cbProEditor !== 'undefined' && cbProEditor.labels) {
-        panelTitle = 'ClassyBlocks';
-      }
+      var proActive = typeof cbProEditor !== 'undefined' && cbProEditor.labels;
+      var panelTitle = proActive ? 'ClassyBlocks' : (siCssData.labels.title || 'CSS Classes');
 
       return createElement(
         Fragment,
@@ -132,7 +130,7 @@
                 'div',
                 { style: { display: 'flex', borderBottom: '1px solid #e0e0e0', marginBottom: '12px' } },
                 renderTab('classes', siCssData.labels.title || wp.i18n.__('Classes', 'studio-immens-css-classes'), activeTab === 'classes'),
-                renderTab('pro-animations', wp.i18n.__('Animations', 'studio-immens-css-classes'), activeTab === 'pro-animations')
+                !proActive && renderTab('pro-animations', wp.i18n.__('Animations', 'studio-immens-css-classes'), activeTab === 'pro-animations')
               ),
 
               activeTab === 'classes' && createElement(
@@ -183,7 +181,7 @@
                 )
               ),
 
-              activeTab === 'pro-animations' && createElement(
+              !proActive && activeTab === 'pro-animations' && createElement(
                 'div',
                 { className: 'cb-panel-content' },
                 createElement(

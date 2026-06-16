@@ -474,7 +474,7 @@ class SICC_Pack_Manager {
         $css = preg_replace( '/expression\s*\(|behavior\s*:|url\s*\(\s*["\']?\s*javascript:/i', '', $css );
         $css = preg_replace( '/@import\s+/i', '', $css );
         $css = preg_replace( '/<\/?style[^>]*>/i', '', $css );
-        $css = preg_replace( '/url\s*\(\s*["\']?[^"\')]+["\']?\s*\)/i', '', $css );
+        $css = preg_replace( '/url\s*\(\s*["\']?(?!https?:\/\/|data:)[^"\')]+["\']?\s*\)/i', '', $css );
         return trim( $css );
     }
 }

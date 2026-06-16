@@ -30,24 +30,8 @@
   } = wp.components;
   const { addFilter } = wp.hooks;
 
-  (function injectDynamicCSS() {
-    if (typeof document === 'undefined' || typeof siCssDataBl === 'undefined') {
-      return;
-    }
-    const head = document.head || document.getElementsByTagName('head')[0];
-    let styleEl = head.querySelector('#si-css-dynamic');
-    if (!styleEl) {
-      styleEl = document.createElement('style');
-      styleEl.id = 'si-css-dynamic';
-      head.appendChild(styleEl);
-    }
-    // Inietta tutte le regole attuali in un solo colpo
-    styleEl.textContent = siCssDataBl.classes
-      .map(c => `${c}`)
-      .join('\n');
-  })();
 
-
+  
   function AddCSSClassControl(settings) {
     if (!settings.supports) {
       return settings;

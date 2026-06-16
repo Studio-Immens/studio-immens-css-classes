@@ -22,7 +22,7 @@ add_filter( 'wp_consent_api_registered_' . plugin_basename( __FILE__ ), '__retur
 // === FILE PRINCIPALE: studio-immens-css-classes.php ===
 define('SI_CSS_CLASS_PATH', plugin_dir_path(__FILE__));
 define('SI_CSS_CLASS_URL', plugin_dir_url(__FILE__));
-define('SI_CSS_CLASS_VERSION', '2.2.5');
+define('SI_CSS_CLASS_VERSION', '2.3.0');
 
 
 // Frameworks CSS versions
@@ -45,6 +45,9 @@ class StudioImmens_CSS_Classes {
     public function __construct() {
         add_action('init', function() {
             load_plugin_textdomain('studio-immens-css-classes', false, dirname(plugin_basename(__FILE__)) . '/languages');
+        });
+        add_action('init', function() {
+            wp_register_style('sicc-custom-css', false, [], SI_CSS_CLASS_VERSION);
         });
         // Verifica compatibilità minima con WordPress
         if (version_compare(get_bloginfo('version'), '5.0', '<')) {
@@ -251,7 +254,9 @@ class StudioImmens_CSS_Classes {
 
     public function sicc_output_block_css() {
         if (!empty(self::$block_css)) {
-            echo '<style id="sicc-custom-blocks-css">' . str_replace( ['</style>', '<style', '\\'], '', self::$block_css ) . '</style>';
+            $css = str_replace(['</style>', '<style', '\\'], '', self::$block_css);
+            wp_enqueue_style('sicc-custom-css');
+            wp_add_inline_style('sicc-custom-css', $css);
         }
     }
 
@@ -399,7 +404,7 @@ class StudioImmens_CSS_Classes {
 
     // Menu icon hover effect
     public function sicc_admin_menu_icon_style() {
-        echo '<style>
+        $css = '
             li#toplevel_page_studioimmens-css .wp-menu-image {
                 display: flex !important;
                 align-items: center !important;
@@ -422,7 +427,8 @@ class StudioImmens_CSS_Classes {
                 opacity: 1;
                 scale: 1.1;
             }
-        </style>';
+        ';
+        wp_add_inline_style('admin-menu', $css);
     }
 
     // Script admin
@@ -606,7 +612,8 @@ class StudioImmens_CSS_Classes {
         $css = preg_replace('/expression\s*\(|behavior\s*:|url\s*\(\s*["\']?\s*javascript:/i', '', $css);
         $css = preg_replace('/@import\s+/i', '', $css);
         $css = preg_replace('/<\/?style[^>]*>/i', '', $css);
-        $css = preg_replace('/url\s*\(\s*["\']?[^"\')]+["\']?\s*\)/i', '', $css);
+        // Strip only non-http/data url() to prevent XSS while allowing background images
+        $css = preg_replace('/url\s*\(\s*["\']?(?!https?:\/\/|data:)[^"\')]+["\']?\s*\)/i', '', $css);
         return trim($css);
     }
 
